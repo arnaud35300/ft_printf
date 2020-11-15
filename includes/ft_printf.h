@@ -6,53 +6,89 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:11:53 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/14 20:17:40 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/15 18:30:58 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+/* 
+ ** Include dependencies and librairies
+*/
+
+# include "libft.h"
+# include <ctype.h>
+# include <stdlib.h>
+# include <stdarg.h>
+
 /*
- ** MACROS
+ ** Macros
 */
 
 # define STDOUT 1
 # define bool int
 # define TRUE 1
 # define FALSE 0
+# define BUFFER_SIZE 4096
+
+# define NO_FLAG 0 
+# define NO_WIDTH 0
+# define NO_PRECISION 0
+# define NO_TYPE NULL
+# define EXIT_ERROR -1
 
 /*
- ** FLAG STRUCTURE 
+ ** Enums
 */
 
-typedef struct		s_arg
+enum e_type
 {
-	bool	flag_negative;
-	bool	flag_zero;
-	bool	flag_star;
-	bool	precision;
-	int		precision_width;
-	int		width;
-	char	type;
-}					t_arg;
+	c,
+	s,
+	p,
+	d,
+	i,
+	u,
+	x,
+	X,
+};
 
-/* 
- ** Include dependencies (libft)
+/*
+ ** Printf structures
 */
 
-# include "libft.h"
-# include <stdarg.h>
+typedef struct		s_buffer
+{
+	char	buffer[BUFFER_SIZE];
+	size_t	index;
+	int		fd;
+}					t_buffer;
+
+typedef struct		s_format
+{
+	unsigned int	flags;
+	unsigned int	width;
+	unsigned int	precision;
+	enum e_type		type;
+}					t_format;
+
+typedef struct		s_printf
+{
+	int			len;
+	char		*str;
+	t_buffer	buffer;
+	t_format	format;
+}					t_printf;
 
 /*
 ** Functions prototypes
 */
 
-int		ft_printf(const char *fmt, ...);
-int		check_arg(const char *arg);
-void	display_arg(const char *arg);
-bool	is_flag(char c);
-t_arg	*init_struct(void);
-void	assign_flag(t_arg *arg_control, char flag);
+int			ft_printf(const char *fmt, ...);
+bool		is_flag(char c);
+//bool		is_specifier(char c);
+int			count_buffer_size(const char *fmt, va_list *ap);
+t_printf	*init_printf_struct(const char *content);
 
 #endif

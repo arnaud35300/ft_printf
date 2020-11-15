@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_arg.c                                        :+:      :+:    :+:   */
+/*   count_buffer_size.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/14 11:55:21 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/14 20:17:45 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/15 10:38:58 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/15 18:21:24 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		check_arg(const char *arg)
+int	count_buffer_size(const char *fmt, va_list *ap)
 {
-	t_arg *arg_control;
-	int i;
-	
-	arg_control = init_struct();
-	if (!arg_control)
-		return (FALSE);
-	i = 0;
-	while (is_flag(arg[i]))
-	{
-		assign_flag(arg_control, arg[i]);
-		i++;
-	}
-	(void)arg;
-	return (1);
+	(void)fmt;
+	(void)ap;
+	return (0);
+	/*
+	int arg_size;
+
+	while (*fmt && !is_specifier(*fmt))
+		fmt++;
+		*/
 }
