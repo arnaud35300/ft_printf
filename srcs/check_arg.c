@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/11 09:14:02 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/14 12:36:24 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/14 11:55:21 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/14 20:17:45 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
-int	ft_printf(const char *fmt, ...)
-{
-	va_list ap;
 
-	va_start(ap, fmt);
-	while (*fmt)
+int		check_arg(const char *arg)
+{
+	t_arg *arg_control;
+	int i;
+	
+	arg_control = init_struct();
+	if (!arg_control)
+		return (FALSE);
+	i = 0;
+	while (is_flag(arg[i]))
 	{
-		if (*fmt == '%' && *(fmt + 1))
-			display_arg(fmt);
-		else
-			ft_putchar_fd(*fmt, STDOUT);
-		fmt++;
+		assign_flag(arg_control, arg[i]);
+		i++;
 	}
-	va_end(ap);
-	return (0);
-}
-
-int main(void)
-{
-	ft_printf("Yoooi %   % %");
+	(void)arg;
+	return (1);
 }

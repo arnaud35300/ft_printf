@@ -6,7 +6,7 @@
 #    By: arguilla <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/11 08:48:33 by arguilla          #+#    #+#              #
-#    Updated: 2020/11/11 19:36:38 by arguilla         ###   ########.fr        #
+#    Updated: 2020/11/11 19:48:44 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,14 +28,14 @@ OBJS		= ft_printf.o
 
 # [ PATH ] #
 
-VPATH		= includes:src
+VPATH		= includes:srcs
 
 # [ RULES ] #
 
 all:		$(NAME)
 
-%.o : %.c			
-			@$(CC) $(CFLAGS) $< -o $@
+%.o : %.c
+			@$(CC) $(CFLAGS) -I./includes -I./libft $< -o $@
 
 $(NAME):	$(OBJS)
 			@$(MAKE) -C $(LIBFT)

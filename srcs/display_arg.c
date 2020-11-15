@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   display_arg.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/11 09:14:02 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/14 12:36:24 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/14 12:12:50 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/14 12:36:54 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
-int	ft_printf(const char *fmt, ...)
-{
-	va_list ap;
 
-	va_start(ap, fmt);
-	while (*fmt)
-	{
-		if (*fmt == '%' && *(fmt + 1))
-			display_arg(fmt);
-		else
-			ft_putchar_fd(*fmt, STDOUT);
-		fmt++;
-	}
-	va_end(ap);
-	return (0);
-}
+/*
+ ** The function choose if the arguments are corrects and if isn't true,
+ ** the function print the current character ('%').
+*/
 
-int main(void)
+void	display_arg(const char *arg)
 {
-	ft_printf("Yoooi %   % %");
+	if (!check_arg(arg))
+		ft_putchar_fd(*arg, STDOUT);
 }
