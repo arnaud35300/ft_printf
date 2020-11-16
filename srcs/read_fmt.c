@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 15:54:11 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/16 20:45:26 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/16 20:56:44 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ bool		read_fmt(t_printf *pf, va_list *ap)
 	{
 		if (!(pf->buffer.index < BUFFER_SIZE))
 		{
-			read_buffer(pf.buffer);
+			read_buffer(&(pf->buffer));
 			clean_buffer(pf->buffer);
 		}
 		pf->buffer.buffer[pf->buffer.index] = pf->str[i];
