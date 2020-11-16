@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:11:53 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/16 20:30:11 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/16 21:50:22 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define bool int
 # define TRUE 1
 # define FALSE 0
-# define BUFFER_SIZE 4096
+# define BUFFER_SIZE 3 
 
 # define NO_FLAG 0 
 # define NO_WIDTH 0

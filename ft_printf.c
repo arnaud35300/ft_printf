@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:14:02 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/16 20:25:00 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/16 21:42:06 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ int	ft_printf(const char *fmt, ...)
 
 int main(void)
 {
-	printf("%d\n", ft_printf("Yoooi %   % %"));
+	ft_printf("Bonjour je suis une chaine");
 }
