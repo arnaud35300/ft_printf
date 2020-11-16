@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:11:53 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/16 21:50:22 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/16 22:17:32 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define bool int
 # define TRUE 1
 # define FALSE 0
-# define BUFFER_SIZE 3 
+# define BUFFER_SIZE 200 
 
 # define NO_FLAG 0 
 # define NO_WIDTH 0
@@ -86,10 +86,18 @@ typedef struct		s_printf
 */
 
 int			ft_printf(const char *fmt, ...);
+
+// verif
 bool		is_flag(char c);
+
+// structures
 t_printf	*init_printf_struct(const char *content);
 void		free_printf_struct(t_printf *pf);
+
+// parsing
 bool		read_fmt(t_printf *pf, va_list *ap);
+
+// buffer
 void		clean_buffer(t_buffer *buffer);
 void		read_buffer(t_buffer *buffer);
 
