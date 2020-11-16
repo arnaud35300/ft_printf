@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:47:06 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/15 20:23:10 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/16 15:45:00 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,9 @@ t_printf	*init_printf_struct(const char *content)
 		return (pf);
 	pf->len = 0;
 	pf->str = (char *)content;
-	/*pf->buffer = malloc(sizeof(buffer));
-	pf->format = malloc(sizeof(format));
-	if (!pf->buffer || !pf->format)
-	{
-		pf = NULL;
-		return (pf);
-	}*/
 	pf->buffer = *buffer;
 	pf->format = *format;
+	free(buffer);
+	free(format);
 	return (pf);
 }

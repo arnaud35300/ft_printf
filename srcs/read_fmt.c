@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   read_fmt.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/11 09:14:02 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/16 20:25:00 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/16 15:54:11 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/16 20:45:26 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int	ft_printf(const char *fmt, ...)
+bool		read_fmt(t_printf *pf, va_list *ap)
 {
-	t_printf	*pf;
-	va_list		ap;
-	int			result;
-	if (!fmt)
-		return (EXIT_ERROR);
-	pf = init_printf_struct(fmt);
-	if (!pf)
-		return (EXIT_ERROR);
-	va_start(ap, fmt);	
-	read_fmt(pf, &ap);
-	va_end(ap);
-	result = pf->len;
-	free_printf_struct(pf);
-	return (result);
-}
+	size_t	i;
 
-int main(void)
-{
-	printf("%d\n", ft_printf("Yoooi %   % %"));
+	i = 0;
+	while (pf->str[i])
+	{
+		if (!(pf->buffer.index < BUFFER_SIZE))
+		{
+			read_buffer(pf.buffer);
+			clean_buffer(pf->buffer);
+		}
+		pf->buffer.buffer[pf->buffer.index] = pf->str[i];
+		i++;
+		pf->buffer.index++;
+		pf->len++;
+	}
+	(void)ap;
+	return (1);
 }

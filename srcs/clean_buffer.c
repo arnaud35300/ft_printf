@@ -1,37 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   clean_buffer.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/11 09:14:02 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/16 20:25:00 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/16 20:25:18 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/16 20:32:46 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int	ft_printf(const char *fmt, ...)
+void	clean_buffer(t_buffer *buffer)
 {
-	t_printf	*pf;
-	va_list		ap;
-	int			result;
-	if (!fmt)
-		return (EXIT_ERROR);
-	pf = init_printf_struct(fmt);
-	if (!pf)
-		return (EXIT_ERROR);
-	va_start(ap, fmt);	
-	read_fmt(pf, &ap);
-	va_end(ap);
-	result = pf->len;
-	free_printf_struct(pf);
-	return (result);
-}
-
-int main(void)
-{
-	printf("%d\n", ft_printf("Yoooi %   % %"));
+	buffer->buffer = NULL;
+	buffer->index = 0;
 }

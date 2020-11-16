@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:11:53 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/15 18:30:58 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/16 20:30:11 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,10 @@ typedef struct		s_printf
 
 int			ft_printf(const char *fmt, ...);
 bool		is_flag(char c);
-//bool		is_specifier(char c);
-int			count_buffer_size(const char *fmt, va_list *ap);
 t_printf	*init_printf_struct(const char *content);
+void		free_printf_struct(t_printf *pf);
+bool		read_fmt(t_printf *pf, va_list *ap);
+void		clean_buffer(t_buffer *buffer);
+void		read_buffer(t_buffer *buffer);
 
 #endif
