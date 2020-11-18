@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_fmt.c                                         :+:      :+:    :+:   */
+/*   is_specifier.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 15:54:11 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/18 15:03:59 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/18 08:53:25 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/18 14:54:54 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-bool		read_fmt(t_printf *pf, va_list *ap)
+bool		is_specifier(char c)
 {
-	size_t	i;
-
-	i = 0;
-	clean_buffer(&(pf->buffer));
-	while (pf->str[i])
-	{
-		if (pf->buffer.index >= BUFFER_SIZE)
-			read_and_clean_buffer(&(pf->buffer));
-		if (pf->str[i] == FMT_META_CHAR)
-			read_argument(pf, ap, &i);
-		else
-			store_char(pf, &i);
-	}
-	read_and_clean_buffer(&(pf->buffer));
-	return (1);
+	return (c == FMT_CHAR || c == FMT_STR || c == FMT_PTR || c == FMT_D_INT
+			|| c == FMT_I_INT || c == FMT_U_INT || c == FMT_HEX_L
+			|| c == FMT_HEX_U);
 }

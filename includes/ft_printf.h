@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:11:53 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/16 22:17:32 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/18 15:02:11 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
  ** Include dependencies and librairies
 */
 
+
 # include "libft.h"
 # include <ctype.h>
 # include <stdlib.h>
@@ -26,17 +27,32 @@
  ** Macros
 */
 
+/*
+** Types and flags
+*/
+
+# define FMT_META_CHAR	'%'
+# define FMT_CHAR		'c'
+# define FMT_STR		's'
+# define FMT_PTR		'c'
+# define FMT_D_INT		'd'
+# define FMT_I_INT		'i'
+# define FMT_U_INT		'u'
+# define FMT_HEX_L		'x'
+# define FMT_HEX_U		'X'
+
 # define STDOUT 1
 # define bool int
 # define TRUE 1
 # define FALSE 0
-# define BUFFER_SIZE 200 
+# define BUFFER_SIZE 1 
 
 # define NO_FLAG 0 
 # define NO_WIDTH 0
 # define NO_PRECISION 0
 # define NO_TYPE NULL
 # define EXIT_ERROR -1
+# define SPECIFIER_COUNT 8
 
 /*
  ** Enums
@@ -96,9 +112,17 @@ void		free_printf_struct(t_printf *pf);
 
 // parsing
 bool		read_fmt(t_printf *pf, va_list *ap);
+void		store_char(t_printf *pf, size_t *i);
+bool		read_argument(t_printf *pf, va_list *ap, size_t *i);
 
+// validator
+bool		is_specifier(char c);
 // buffer
 void		clean_buffer(t_buffer *buffer);
 void		read_buffer(t_buffer *buffer);
+void		read_and_clean_buffer(t_buffer *buffer);
+
+// utils
+void	increment(t_printf *pf, size_t *i);
 
 #endif

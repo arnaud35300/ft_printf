@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:14:02 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/16 21:42:06 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/18 10:03:01 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int	ft_printf(const char *fmt, ...)
 
 int main(void)
 {
-	ft_printf("Bonjour je suis une chaine");
+	ft_printf("Bonjour je suis %14d %14s %14.33d, %*.*d %24*.d une chaine %d");
+	printf("Bonjour je suis %d une chaine\n", 10);
 }

@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:14:02 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/14 19:40:43 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/18 14:12:59 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,5 @@ int	ft_printf(const char *fmt, ...)
 
 int main(void)
 {
-	ft_printf("Yooo");
+	printf("%5p blabla", NULL);
 }
