@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:47:06 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/16 15:45:00 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/18 16:08:11 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static t_format		*init_format_struct(void)
 	format->flags = NO_FLAG;
 	format->width = NO_WIDTH;
 	format->precision = NO_PRECISION;
+	format->precision_width = NO_PREC_WIDTH;
 	return (format);
 }
 

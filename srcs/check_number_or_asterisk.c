@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   check_number_or_asterisk.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/11 09:14:02 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/18 16:31:31 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/18 16:57:37 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/18 16:58:46 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int	ft_printf(const char *fmt, ...)
+/*
+** Functions who check if current character is '*' and increment a counter,
+** or increment a counter while current character is a number.
+*/
+void	check_number_or_asterisk(char *str, size_t *j)
 {
-	t_printf	*pf;
-	va_list		ap;
-	int			result;
-	if (!fmt)
-		return (EXIT_ERROR);
-	pf = init_printf_struct(fmt);
-	if (!pf)
-		return (EXIT_ERROR);
-	va_start(ap, fmt);	
-	read_fmt(pf, &ap);
-	va_end(ap);
-	result = pf->len;
-	free_printf_struct(pf);
-	return (result);
-}
-
-int main(void)
-{
-	ft_printf("Bonjour je suis %05714d");
-	//printf("Bonjour je suis %d une chaine\n", 10);
+	if (str[*j] == '*' && str[*j])
+		(*j)++;
+	else if (ft_isdigit(str[*j]))
+		while (ft_isdigit(str[*j]) && str[*j])
+			(*j)++;
 }
