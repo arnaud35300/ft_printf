@@ -45,7 +45,7 @@
 # define bool				int
 # define TRUE				1
 # define FALSE				0
-# define BUFFER_SIZE		1 
+# define BUFFER_SIZE		5
 
 # define NO_FLAG			'\0' 
 # define NO_WIDTH			0

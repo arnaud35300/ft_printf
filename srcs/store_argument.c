@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 16:45:05 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/18 16:47:59 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/18 23:38:04 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,12 @@ bool		store_argument(t_printf *pf, va_list *ap, size_t *i)
 	pf->format.precision = move_str_index(pf->str[j], ".", &j);
 	pf->format.precision_width = store_number_or_asterisk(pf->str, &j, ap);
 
-	printf("flag : %d\n", pf->format.flags);
-	printf("width : %d\n", pf->format.width);
-	printf("precision : %d\n", pf->format.precision);
-	printf("width : %d\n", pf->format.precision_width);
+	//static int test = 0;
+	//printf("test : %d\n", test);
+	//test++;
+	//printf("coucou");
+	//printf("\n|| width : %d\n", pf->format.width);
+	//printf("\n|| precision : %d\n", pf->format.precision);
+	//printf("\n|| width : %d\n", pf->format.precision_width);
 	return (1);
 }
