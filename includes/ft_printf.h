@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:11:53 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/25 11:49:40 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/26 17:35:17 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 
 # include "libft.h"
+# include <limits.h>
 # include <ctype.h>
 # include <stdlib.h>
 # include <stdarg.h>
@@ -120,7 +121,7 @@ bool		read_argument(t_printf *pf, va_list *ap, size_t *i);
 
 // store
 bool		store_argument(t_printf *pf, va_list *ap, size_t *i);
-int			store_number_or_asterisk(char *str, size_t *j, va_list *ap);
+int			store_number_or_asterisk(char *str, size_t *j, va_list *ap, t_format *format);
 char		move_str_index(char c, char *compare, size_t *j);
 void		check_number_or_asterisk(char *str, size_t *j);
 void		store_output(t_printf *pf, char *output, bool order);
@@ -156,7 +157,10 @@ bool		convert_u_int(t_printf *pf, va_list *ap);
 bool		convert_hex_l(t_printf *pf, va_list *ap);
 bool		convert_hex_u(t_printf *pf, va_list *ap);
 
+char		*assign_output(t_format *format, int nb);
+char		*assign_output_u(t_format *format, unsigned int nb);
 char		*itoa_and_prec(int n, unsigned int prec);
+char		*itoa_u_and_prec(unsigned int n, unsigned int prec);
 // functions tab
 typedef bool	t_func(t_printf *pf, va_list *ap);
 void		assign_tab_converter(t_func **tab);

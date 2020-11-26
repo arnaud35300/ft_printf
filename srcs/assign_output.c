@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_printf_struct.c                               :+:      :+:    :+:   */
+/*   assign_output.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 09:00:01 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/26 11:41:27 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/26 08:12:01 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/26 08:12:23 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		free_printf_struct(t_printf *pf)
+char *assign_output(t_format *format, int nb)
 {
-	if (!pf)
-		return ;
-	//free(pf->str);
-	free(pf);
+	if (nb == 0 && format->precision == '.' && format->precision_width == 0)
+		return (ft_strdup(""));
+	if (format->precision == '.')
+		return (itoa_and_prec(nb, format->precision_width));
+	if (format->flags == '0')
+		return (itoa_and_prec(nb, format->width));
+	return (itoa_and_prec(nb, 0));
 }

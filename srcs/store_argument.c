@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 16:45:05 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/21 08:29:01 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/26 10:24:58 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ bool		store_argument(t_printf *pf, va_list *ap, size_t *i)
 	j = *i;
 	move_str_index(pf->str[j], "%", &j);
 	pf->format.flags = move_str_index(pf->str[j], "-0", &j);
-	pf->format.width = store_number_or_asterisk(pf->str, &j, ap);
+	pf->format.width = store_number_or_asterisk(pf->str, &j, ap, &(pf->format));
 	pf->format.precision = move_str_index(pf->str[j], ".", &j);
-	pf->format.precision_width = store_number_or_asterisk(pf->str, &j, ap);
+	pf->format.precision_width = store_number_or_asterisk(pf->str, &j, ap, &(pf->format));
 	pf->format.type = get_type(pf->str[j]);
 	//printf("\n|| format : %d\n", pf->format.type);
 	//printf("\n|| precision : %c\n", pf->format.precision);

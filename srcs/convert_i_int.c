@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 09:29:10 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/21 09:29:19 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/26 18:28:52 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 bool		convert_i_int(t_printf *pf, va_list *ap)
 {
-	(void)pf;
-	(void)ap;
-	return (1);
+	return (convert_d_int(pf, ap));
 }
 
 

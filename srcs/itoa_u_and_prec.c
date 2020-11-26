@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   itoa_u_and_prec.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 15:18:58 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/26 18:45:09 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/26 08:31:32 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/26 08:51:55 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "ft_printf.h" 
 
 static int	get_absolute(int n)
 {
@@ -20,9 +19,9 @@ static int	get_absolute(int n)
 	return (-n);
 }
 
-static int	get_len(int n)
+static int	get_len(unsigned int n)
 {
-	int	len;
+	unsigned int	len;
 
 	len = 0;
 	if (n <= 0)
@@ -35,7 +34,7 @@ static int	get_len(int n)
 	return (len);
 }
 
-static void assign_value(int *len, int *len_and_prec, int *n, int *prec)
+static void assign_value(unsigned int *len, int *len_and_prec, int *n, unsigned int *prec)
 {
 	*len = get_len(*n);
 	*len_and_prec = *len;
@@ -55,10 +54,11 @@ static void	assign_width(char *r, int *prec)
 		r[j] = '0';	
 	}
 }
-char	*ft_itoa(int n, int prec)
+
+char	*itoa_u_and_prec(unsigned int n, unsigned int prec)
 {
 	char	*r;
-	int		len;
+	unsigned int		len;
 	int		len_and_prec;
 
 	assign_value(&len, &len_and_prec, &n, &prec);
@@ -80,17 +80,4 @@ char	*ft_itoa(int n, int prec)
 		n = n / 10;
 	}
 	return (r);
-}
-
-int main(int ac, char **av)
-{
-	(void)ac;
-	char c;
-
-#include <stdlib.h>
-	c = atoi(av[1]);
-	printf("%c\n", c);
-	printf("%-20c\n", c);
-	printf("%20c\n", c);
-	printf("%10c\n", c);
 }

@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:14:02 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/26 07:57:31 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/26 20:50:29 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,28 @@ int	ft_printf(const char *fmt, ...)
 
 int main(void)
 {
-	ft_printf("%d\n", ft_printf("Coucou  %10.20d %34.*d%-*.*d %d\n", 4, 12, 10, 10, 2, 0,32));
-	printf("%d\n", printf("Coucou  %10.20d %34.*d%-*.*d %d\n", 4, 12, 10, 10, 2, 0,32));
+	ft_printf("%d\n", ft_printf("Coucou  %10.20d %34.*d%-*.*d %d %d %d %d\n", 4, 12, 10, 10, 2, 0,32,-0, -5, -120000));
+	   printf("%d\n",    printf("Coucou  %10.20d %34.*d%-*.*d %d %d %d %d\n", 4, 12, 10, 10, 2, 0,32,-0, -5, -120000));
+	fflush(stdout);
+	ft_printf("%*.u %*.u %2.10u\n", -12, -13, -1, 78, -9888);
+	   printf("%*.u %*.u %2.10u\n", -12, -13, 2, 78, -9888);
+	fflush(stdout);
+	ft_printf("%-*.*u\n", 5, -4, 10);
+	   printf("%-*.*u\n", 5, -4, 10);
+	fflush(stdout);
+	ft_printf("test: %u %010u\n", 5, 10);
+	   printf("test: %u %010u\n", 5, 10);
+	fflush(stdout);
+	ft_printf("test max: %u\n", 300000000);
+	   printf("test max: %u\n", 300000000);
+	fflush(stdout);
+	ft_printf("i: %i %10.2i%.i\n", 0x32, 012, -12);
+	   printf("i: %i %10.2i%.i\n", 0x32, 012, -12);
+	fflush(stdout);
+	ft_printf("c: %c %10c%-12c\n", 'e', 'A', 380);
+	   printf("c: %c %10c%-12c\n", 'e', 'A', 380);
+	fflush(stdout);
+	ft_printf("null:%c\n", '\0');
+	   printf("null:%c\n", '\0');
+	fflush(stdout);
 }

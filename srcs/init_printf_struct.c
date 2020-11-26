@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:47:06 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/21 08:27:27 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/26 17:31:02 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ t_printf	*init_printf_struct(const char *content)
 	if (!pf)
 		return (pf);
 	pf->len = 0;
-	pf->str = ft_strdup(content);
+	pf->str = NULL;
+	pf->str = (char *)content;
 	if (!pf->str)
 	{
 		pf = NULL;
+		free(pf);
 		return (pf);
 	}
 	pf->format.flags = NO_FLAG;
