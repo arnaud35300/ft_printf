@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 09:24:28 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/26 20:49:17 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/26 21:03:59 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,36 +25,12 @@ bool		convert_char(t_printf *pf, va_list *ap)
 	if (pf->format.flags == '-')
 	{
 		store_char_arg(pf, ap);
-		/*
-		if (pf->buffer.index < BUFFER_SIZE)
-		{
-			pf->buffer.buffer[pf->buffer.index] = va_arg(*ap, int);
-			pf->buffer.index++;
-		}
-		else
-		{
-			read_and_clean_buffer(&(pf->buffer));
-			pf->buffer.buffer[pf->buffer.index] = va_arg(*ap, int);
-			pf->buffer.index++;
-		}
-		*/
-		store_output(pf, "", SPACE_AFTER);
+		store_output(pf, "", 1, SPACE_AFTER);
 	}
 	else
 	{
-		store_output(pf, "", SPACE_BEFORE);
+		store_output(pf, "", 1, SPACE_BEFORE);
 		store_char_arg(pf, ap);
-		/*if (pf->buffer.index < BUFFER_SIZE)
-		{
-			pf->buffer.buffer[pf->buffer.index] = va_arg(*ap, int);
-			pf->buffer.index++;
-		}
-		else
-		{
-			read_and_clean_buffer(&(pf->buffer));
-			pf->buffer.buffer[pf->buffer.index] = va_arg(*ap, int);
-			pf->buffer.index++;
-		}*/
 	}
 	return (TRUE);
 }

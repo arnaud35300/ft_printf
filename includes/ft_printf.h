@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:11:53 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/26 17:35:17 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/26 20:58:48 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ bool		store_argument(t_printf *pf, va_list *ap, size_t *i);
 int			store_number_or_asterisk(char *str, size_t *j, va_list *ap, t_format *format);
 char		move_str_index(char c, char *compare, size_t *j);
 void		check_number_or_asterisk(char *str, size_t *j);
-void		store_output(t_printf *pf, char *output, bool order);
+void		store_output(t_printf *pf, char *output, size_t output_len, bool order);
 
 // dispatch
 bool	dispatch_argument(t_printf *pf, va_list *ap, size_t *i);

@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 09:28:49 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/26 11:07:31 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/26 21:02:23 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ bool		convert_d_int(t_printf *pf, va_list *ap)
 	if (!output)
 		return (EXIT_ERROR);
 	if (pf->format.flags == '-')
-		store_output(pf, output, SPACE_AFTER);
+		store_output(pf, output, ft_strlen(output), SPACE_AFTER);
 	else
-		store_output(pf, output, SPACE_BEFORE);
+		store_output(pf, output, ft_strlen(output), SPACE_BEFORE);
 	free(output);
 	return (TRUE);
 }
