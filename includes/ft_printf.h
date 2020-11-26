@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:11:53 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/18 17:02:02 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/25 11:49:40 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define FMT_META_CHAR		'%'
 # define FMT_CHAR			'c'
 # define FMT_STR			's'
-# define FMT_PTR			'c'
+# define FMT_PTR			'p'
 # define FMT_D_INT			'd'
 # define FMT_I_INT			'i'
 # define FMT_U_INT			'u'
@@ -45,16 +45,18 @@
 # define bool				int
 # define TRUE				1
 # define FALSE				0
-# define BUFFER_SIZE		5
+# define BUFFER_SIZE		1 
 
 # define NO_FLAG			'\0' 
 # define NO_WIDTH			0
 # define NO_PRECISION		'\0'
 # define NO_PREC_WIDTH		0
-# define NO_TYPE			NULL
+# define NO_TYPE			-1
 # define EXIT_ERROR			-1
 # define SPECIFIER_COUNT	8
-# define NB_SIZE			11 
+# define NB_SIZE			11
+# define SPACE_BEFORE		1
+# define SPACE_AFTER		2
 /*
  ** Enums
 */
@@ -77,9 +79,9 @@ enum e_type
 
 typedef struct		s_buffer
 {
-	char	buffer[BUFFER_SIZE];
 	size_t	index;
 	int		fd;
+	char	buffer[BUFFER_SIZE];
 }					t_buffer;
 
 typedef struct		s_format
@@ -99,14 +101,13 @@ typedef struct		s_printf
 	t_format	format;
 }					t_printf;
 
+
 /*
 ** Functions prototypes
 */
 
 int			ft_printf(const char *fmt, ...);
 
-// verif
-bool		is_flag(char c);
 
 // structures
 t_printf	*init_printf_struct(const char *content);
@@ -122,15 +123,42 @@ bool		store_argument(t_printf *pf, va_list *ap, size_t *i);
 int			store_number_or_asterisk(char *str, size_t *j, va_list *ap);
 char		move_str_index(char c, char *compare, size_t *j);
 void		check_number_or_asterisk(char *str, size_t *j);
+void		store_output(t_printf *pf, char *output, bool order);
+
+// dispatch
+bool	dispatch_argument(t_printf *pf, va_list *ap, size_t *i);
 
 // validator
+bool		is_flag(char c);
 bool		is_specifier(char c);
+bool		is_negative(int *nb);
+
+// getter
+int			get_type(char c);
+
 // buffer
 void		clean_buffer(t_buffer *buffer);
 void		read_buffer(t_buffer *buffer);
 void		read_and_clean_buffer(t_buffer *buffer);
 
 // utils
-void	increment(t_printf *pf, size_t *i);
+void		increment(t_printf *pf, size_t *i);
+void		clean_flag_and_precision(t_format *format);
+size_t		get_argument_len(t_format *format, char *output);
+
+// convertion
+bool		convert_char(t_printf *pf, va_list *ap);
+bool		convert_str(t_printf *pf, va_list *ap);
+bool		convert_ptr(t_printf *pf, va_list *ap);
+bool		convert_d_int(t_printf *pf, va_list *ap);
+bool		convert_i_int(t_printf *pf, va_list *ap);
+bool		convert_u_int(t_printf *pf, va_list *ap);
+bool		convert_hex_l(t_printf *pf, va_list *ap);
+bool		convert_hex_u(t_printf *pf, va_list *ap);
+
+char		*itoa_and_prec(int n, unsigned int prec);
+// functions tab
+typedef bool	t_func(t_printf *pf, va_list *ap);
+void		assign_tab_converter(t_func **tab);
 
 #endif

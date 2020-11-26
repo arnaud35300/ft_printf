@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_fmt.c                                         :+:      :+:    :+:   */
+/*   get_argument_len.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 15:54:11 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/21 07:52:15 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/21 16:11:54 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/25 08:30:28 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-bool		read_fmt(t_printf *pf, va_list *ap)
+size_t		get_argument_len(t_format *format, char *output)
 {
-	size_t	i;
+	size_t len;
 
-	i = 0;
-	clean_buffer(&(pf->buffer));
-	while (pf->str[i])
-	{
-		if (pf->buffer.index >= BUFFER_SIZE)
-			read_and_clean_buffer(&(pf->buffer));
-		if (pf->str[i] == FMT_META_CHAR)
-			read_argument(pf, ap, &i);
-		else
-			store_char(pf, &i);
-	}
-	read_and_clean_buffer(&(pf->buffer));
-	return (1);
+	len = 0;
+	len = ft_strlen(output);
+	if (format->precision_width > len)
+		len = format->precision_width;
+	if (format->width > len)
+		len = format->width;
+	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:14:02 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/18 14:12:59 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/21 16:23:50 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,17 @@ int	ft_printf(const char *fmt, ...)
 	return (0);
 }
 
+int assign_tab(void)
+{
+	return (0);
+}
 int main(void)
 {
-	printf("%5p blabla", NULL);
+	assign_tab();
+	printf("%d\n", 10);
+	printf("%20.4d\n", 10);
+	printf("%-10d\n", 10);
+	printf("%010d\n", 10);
+	printf("%-30.20d\n", 10);
+	printf("%30.20d\n", 10);
 }

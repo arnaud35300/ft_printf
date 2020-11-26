@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:14:02 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/19 14:51:22 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/26 07:57:31 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,17 @@ int	ft_printf(const char *fmt, ...)
 	pf = init_printf_struct(fmt);
 	if (!pf)
 		return (EXIT_ERROR);
-	va_start(ap, fmt);	
+	va_start(ap, fmt);
 	read_fmt(pf, &ap);
 	va_end(ap);
 	result = pf->len;
-	printf("%d\n", pf->format.width);
+	//printf("%d\n", pf->format.width);
 	free_printf_struct(pf);
 	return (result);
 }
 
 int main(void)
 {
-	ft_printf("Bo %03d");
-	//ft_printf("Bo %03d");
-	//ft_printf("% hey hey hey %2d");
-	//printf("Bonjour je suis %d une chaine\n", 10);
+	ft_printf("%d\n", ft_printf("Coucou  %10.20d %34.*d%-*.*d %d\n", 4, 12, 10, 10, 2, 0,32));
+	printf("%d\n", printf("Coucou  %10.20d %34.*d%-*.*d %d\n", 4, 12, 10, 10, 2, 0,32));
 }

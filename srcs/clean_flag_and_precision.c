@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_fmt.c                                         :+:      :+:    :+:   */
+/*   clean_flag_and_precision.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 15:54:11 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/21 07:52:15 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/21 12:02:21 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/25 11:37:12 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-bool		read_fmt(t_printf *pf, va_list *ap)
+void	clean_flag_and_precision(t_format *format)
 {
-	size_t	i;
-
-	i = 0;
-	clean_buffer(&(pf->buffer));
-	while (pf->str[i])
+	if (format->precision == '.' && format->flags == '0')
 	{
-		if (pf->buffer.index >= BUFFER_SIZE)
-			read_and_clean_buffer(&(pf->buffer));
-		if (pf->str[i] == FMT_META_CHAR)
-			read_argument(pf, ap, &i);
-		else
-			store_char(pf, &i);
+		format->flags = NO_FLAG;
+		format->width = NO_WIDTH;
 	}
-	read_and_clean_buffer(&(pf->buffer));
-	return (1);
 }

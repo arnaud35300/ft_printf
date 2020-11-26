@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_fmt.c                                         :+:      :+:    :+:   */
+/*   assign_tab_converter.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 15:54:11 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/21 07:52:15 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/21 09:09:45 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/21 11:49:52 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-bool		read_fmt(t_printf *pf, va_list *ap)
-{
-	size_t	i;
-
-	i = 0;
-	clean_buffer(&(pf->buffer));
-	while (pf->str[i])
-	{
-		if (pf->buffer.index >= BUFFER_SIZE)
-			read_and_clean_buffer(&(pf->buffer));
-		if (pf->str[i] == FMT_META_CHAR)
-			read_argument(pf, ap, &i);
-		else
-			store_char(pf, &i);
-	}
-	read_and_clean_buffer(&(pf->buffer));
-	return (1);
+void	assign_tab_converter(t_func **tab)
+{	
+	tab[0] = &convert_char;
+	tab[1] = &convert_str;
+	tab[2] = &convert_ptr;
+	tab[3] = &convert_d_int;
+	tab[4] = &convert_i_int;
+	tab[5] = &convert_u_int;
+	tab[6] = &convert_hex_l;
+	tab[7] = &convert_hex_u;
 }

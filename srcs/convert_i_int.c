@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_fmt.c                                         :+:      :+:    :+:   */
+/*   convert_i_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 15:54:11 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/21 07:52:15 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/21 09:29:10 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/21 09:29:19 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-bool		read_fmt(t_printf *pf, va_list *ap)
+bool		convert_i_int(t_printf *pf, va_list *ap)
 {
-	size_t	i;
-
-	i = 0;
-	clean_buffer(&(pf->buffer));
-	while (pf->str[i])
-	{
-		if (pf->buffer.index >= BUFFER_SIZE)
-			read_and_clean_buffer(&(pf->buffer));
-		if (pf->str[i] == FMT_META_CHAR)
-			read_argument(pf, ap, &i);
-		else
-			store_char(pf, &i);
-	}
-	read_and_clean_buffer(&(pf->buffer));
+	(void)pf;
+	(void)ap;
 	return (1);
 }
+
+

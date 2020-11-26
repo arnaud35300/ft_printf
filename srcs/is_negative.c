@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_fmt.c                                         :+:      :+:    :+:   */
+/*   is_negative.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 15:54:11 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/21 07:52:15 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/25 08:39:50 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/25 08:52:14 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-bool		read_fmt(t_printf *pf, va_list *ap)
+bool	is_negative(int *nb)
 {
-	size_t	i;
-
-	i = 0;
-	clean_buffer(&(pf->buffer));
-	while (pf->str[i])
+	if (*nb < 0)
 	{
-		if (pf->buffer.index >= BUFFER_SIZE)
-			read_and_clean_buffer(&(pf->buffer));
-		if (pf->str[i] == FMT_META_CHAR)
-			read_argument(pf, ap, &i);
-		else
-			store_char(pf, &i);
+		*nb = *nb * (-1); 
+		return (TRUE);
 	}
-	read_and_clean_buffer(&(pf->buffer));
-	return (1);
+	return (FALSE);
 }

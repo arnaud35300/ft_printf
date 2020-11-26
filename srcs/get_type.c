@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_fmt.c                                         :+:      :+:    :+:   */
+/*   get_type.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 15:54:11 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/21 07:52:15 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/21 08:20:38 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/21 08:20:53 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-bool		read_fmt(t_printf *pf, va_list *ap)
+/*
+** Functions who take a char and compare with all types notations.
+*/
+int	get_type(char c)
 {
-	size_t	i;
+	int	i;
 
-	i = 0;
-	clean_buffer(&(pf->buffer));
-	while (pf->str[i])
-	{
-		if (pf->buffer.index >= BUFFER_SIZE)
-			read_and_clean_buffer(&(pf->buffer));
-		if (pf->str[i] == FMT_META_CHAR)
-			read_argument(pf, ap, &i);
-		else
-			store_char(pf, &i);
-	}
-	read_and_clean_buffer(&(pf->buffer));
-	return (1);
+	i = -1;
+	if (FMT_CHAR == c)
+		i = 0;
+	if (FMT_STR == c)
+		i = 1;
+	if (FMT_PTR == c)
+		i = 2;
+	if (FMT_D_INT == c)
+		i = 3;
+	if (FMT_I_INT == c)
+		i = 4;
+	if (FMT_U_INT == c)
+		i = 5;
+	if (FMT_HEX_L == c)
+		i = 6;
+	if (FMT_HEX_U == c)
+		i = 7;
+	return (i);
 }

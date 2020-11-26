@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 08:17:25 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/18 21:34:51 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/25 20:37:07 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ bool		read_argument(t_printf *pf, va_list *ap, size_t *i)
 	if (is_specifier(pf->str[j]) && pf->str[j])
 	{
 		store_argument(pf, ap, i);
-		*i += ++j;
+		*i = ++j;
+		dispatch_argument(pf, ap, i);
 	}
 	else
 		increment(pf, i);

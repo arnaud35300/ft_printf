@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_fmt.c                                         :+:      :+:    :+:   */
+/*   dispatch_argument.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 15:54:11 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/21 07:52:15 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/21 07:56:57 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/21 11:48:01 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-bool		read_fmt(t_printf *pf, va_list *ap)
+bool	dispatch_argument(t_printf *pf, va_list *ap, size_t *i)
 {
-	size_t	i;
+	t_func *tab[8];
 
-	i = 0;
-	clean_buffer(&(pf->buffer));
-	while (pf->str[i])
-	{
-		if (pf->buffer.index >= BUFFER_SIZE)
-			read_and_clean_buffer(&(pf->buffer));
-		if (pf->str[i] == FMT_META_CHAR)
-			read_argument(pf, ap, &i);
-		else
-			store_char(pf, &i);
-	}
-	read_and_clean_buffer(&(pf->buffer));
-	return (1);
+	assign_tab_converter(tab);
+	return ((*tab[pf->format.type])(pf, ap));
 }
