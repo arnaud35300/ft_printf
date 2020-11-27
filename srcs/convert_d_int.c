@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 09:28:49 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/26 21:02:23 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/27 19:45:55 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool		convert_d_int(t_printf *pf, va_list *ap)
 
 	clean_flag_and_precision(&(pf->format));
 	nb = va_arg(*ap, int);
-	if (pf->format.type == u)
+	if (pf->format.type == u || pf->format.type == x || pf->format.type == X)
 		output = assign_output_u(&(pf->format), nb);
 	else
 		output = assign_output(&(pf->format), nb);
