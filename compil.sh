@@ -1,1 +1,1 @@
-gcc -g3  ft_printf.c  includes/ft_printf.h srcs/*.c libft/ft_strlcpy.c  libft/ft_strdup.c libft/ft_memset.c libft/ft_putstr_fd.c libft/ft_strlen.c libft/ft_putnbr_fd.c libft/ft_isdigit.c libft/ft_putchar_fd.c libft/ft_itoa.c -I includes -I./libft
+gcc -g3  ft_printf.c  includes/ft_printf.h srcs/*.c libft/ft_toupper.c libft/ft_strlcpy.c  libft/ft_strdup.c libft/ft_memset.c libft/ft_putstr_fd.c libft/ft_strlen.c libft/ft_putnbr_fd.c libft/ft_isdigit.c libft/ft_putchar_fd.c libft/ft_itoa.c -I includes -I./libft

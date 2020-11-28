@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 09:31:41 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/27 19:42:20 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/28 13:24:37 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 bool		convert_hex_l(t_printf *pf, va_list *ap)
 {
-	return (convert_u_int(pf, ap));
+	return (convert_d_int(pf, ap));
 }

@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:14:02 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/27 19:44:34 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/28 13:30:00 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	ft_printf(const char *fmt, ...)
 
 int main(void)
 {
-	ft_printf("%d\n", ft_printf("Coucou  %010d\n", 4));
 	ft_printf("%d\n", ft_printf("Coucou  %10.20d %34.*d%-*.*d %d %d %d %d\n", 4, 12, 10, 10, 2, 0,32,-0, -5, -120000));
 	   printf("%d\n",    printf("Coucou  %10.20d %34.*d%-*.*d %d %d %d %d\n", 4, 12, 10, 10, 2, 0,32,-0, -5, -120000));
 	fflush(stdout);
@@ -61,5 +60,8 @@ int main(void)
 	fflush(stdout);
 	ft_printf("hex:%x %20.10x %-25.2x\n", 10, -30, -12);
 	   printf("hex:%x %20.10x %-25.2x\n", 10, -30, -12);
+	fflush(stdout);
+	ft_printf("hex:%X %20.10X %-25.2X\n", 10, -30, -12);
+	   printf("hex:%X %20.10X %-25.2X\n", 10, -30, -12);
 	fflush(stdout);
 }

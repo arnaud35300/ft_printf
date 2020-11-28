@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 11:47:12 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/26 20:57:42 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/28 13:29:01 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ static void store_arg(t_printf *pf, char *output)
 	{
 		if (pf->buffer.index >= BUFFER_SIZE)
 			read_and_clean_buffer(&(pf->buffer));
-		pf->buffer.buffer[pf->buffer.index] = *output;
+		if (pf->format.type == X)
+			pf->buffer.buffer[pf->buffer.index] = ft_toupper(*output);
+		else
+			pf->buffer.buffer[pf->buffer.index] = *output;
 		pf->buffer.index++;
 		pf->len++;
 		output++;
