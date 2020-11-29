@@ -6,13 +6,24 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 08:17:25 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/25 20:37:07 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/28 17:38:41 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
 #include <stdio.h>
+
+static void	store_percent(t_printf *pf, size_t *i, size_t *j)
+{
+	*i = ++(*j);
+	if (!(pf->buffer.index < BUFFER_SIZE))
+		read_and_clean_buffer(&(pf->buffer));
+	pf->buffer.buffer[pf->buffer.index] = '%';
+	pf->buffer.index++;
+	pf->len++;
+}
+
 /*
 ** Functions who take the current position to argument in fmt, and check if
 ** this argument is valid and return a boolean.
@@ -33,6 +44,8 @@ bool		read_argument(t_printf *pf, va_list *ap, size_t *i)
 		*i = ++j;
 		dispatch_argument(pf, ap, i);
 	}
+	else if (pf->str[j] == '%')
+		store_percent(pf, i, &j);
 	else
 		increment(pf, i);
 	return (1);

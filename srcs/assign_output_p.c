@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_ptr.c                                      :+:      :+:    :+:   */
+/*   assign_output_p.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/21 09:25:59 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/29 17:21:52 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/29 14:58:00 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/29 17:21:32 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-bool		convert_ptr(t_printf *pf, va_list *ap)
+char *assign_output_p(t_format *format, void *nb)
 {
-	char	*output;
-	void	*arg;
+	unsigned int base_len;
 
-	arg = va_arg(*ap, void *);
-	output = assign_output_p(&(pf->format), arg);
-	if (!output)
-		return (EXIT_ERROR);
-	if (pf->format.flags == '-')
-		store_output(pf, output, ft_strlen(output), SPACE_AFTER);
-	else
-		store_output(pf, output, ft_strlen(output), SPACE_BEFORE);
-	free(output);
-	return (TRUE);
+	base_len = 16;
+	if (nb == NULL)
+		return (ft_strdup("(nil)"));
+	return (itoa_lu_and_prec((uintptr_t)nb, 0, base_len));
 }

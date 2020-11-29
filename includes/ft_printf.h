@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:11:53 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/27 19:31:18 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/29 15:16:55 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <ctype.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include <stdint.h>
 
 /*
  ** Macros
@@ -159,9 +160,10 @@ bool		convert_hex_u(t_printf *pf, va_list *ap);
 
 char		*assign_output(t_format *format, int nb);
 char		*assign_output_u(t_format *format, unsigned int nb);
+char		*assign_output_p(t_format *format, void *nb);
 char		*itoa_and_prec(int n, unsigned int prec, int base_len);
-//char		*itoa_u_and_prec(unsigned int n, unsigned int prec);
 char		*itoa_u_and_prec(unsigned int n, unsigned int prec, unsigned int base_len);
+char		*itoa_lu_and_prec(long unsigned int n, long unsigned int prec, long unsigned int base_len);
 // functions tab
 typedef bool	t_func(t_printf *pf, va_list *ap);
 void		assign_tab_converter(t_func **tab);
