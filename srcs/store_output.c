@@ -6,14 +6,14 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 11:47:12 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/28 13:29:01 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/29 18:02:43 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-static void	store_space(t_printf *pf, char *output, size_t output_len)
+static void	store_space(t_printf *pf, size_t output_len)
 {
 	while (pf->format.width > output_len)
 	{
@@ -47,13 +47,13 @@ void	store_output(t_printf *pf, char *output, size_t output_len, bool order)
 	if (order == SPACE_BEFORE)
 	{
 		if (pf->format.width > output_len)
-			store_space(pf, output, output_len);
+			store_space(pf, output_len);
 		store_arg(pf, output);
 	}
 	else if (order == SPACE_AFTER)
 	{
 		store_arg(pf, output);
 		if (pf->format.width > output_len)
-			store_space(pf, output, output_len);
+			store_space(pf,  output_len);
 	}
 }

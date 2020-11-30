@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:14:02 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/29 17:27:50 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/29 23:30:39 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	ft_printf(const char *fmt, ...)
 	free_printf_struct(pf);
 	return (result);
 }
+
 /*
 int main(void)
 {
@@ -75,7 +76,6 @@ int main(void)
 	ft_printf("%10p %p %p %p\n", NULL, (void *)100, (void *)UINT_MAX, (void *)0);
 	   printf("%10p %p %p %p\n", NULL, (void *)100, (void *)UINT_MAX, (void *)0);
 	fflush(stdout);
-	ft_printf("%p\n", NULL);
-	   printf("%p\n", (void *)1);
-	fflush(stdout);
+	
+	ft_printf("%0*i", -7, -54);
 }*/

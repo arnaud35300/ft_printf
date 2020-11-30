@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 14:58:00 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/29 17:21:32 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/29 17:59:28 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char *assign_output_p(t_format *format, void *nb)
 {
 	unsigned int base_len;
-
+	(void)format; // remove format parameters
 	base_len = 16;
 	if (nb == NULL)
 		return (ft_strdup("(nil)"));

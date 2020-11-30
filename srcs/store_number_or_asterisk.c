@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 16:48:29 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/26 10:32:16 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/29 23:33:36 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,26 @@ int		store_number_or_asterisk(char *str, size_t *j, va_list *ap, t_format *forma
 {
 	int width;
 	int i;
-
+// FUNCTIONS TOO LONG !!!!!!!!!!!!!!!!!!!!!!!!!!! NORMINETTE
 	width = 0;
 	i = 10;
 	if (str[*j] == '*' && str[*j])
 	{
 		width = va_arg(*ap, int);
 		if (width < 0)
-			if (str[*j -1] == '.')
-				width = 0;
-			else if(str[*j - 1] == FMT_META_CHAR)
+		{
+			if (str[*j - 1] == '.')
+			{
+				// REFACTORING
+				format->precision = NO_PRECISION;
+				format->precision_width = NO_PREC_WIDTH;
+				//width = 0;
+			}
+			else if(str[*j - 1] == FMT_META_CHAR || format->flags == '0')
 				assign_width(&width, format);
 			else
 				width *= (-1);
+		}
 		(*j)++;
 	}
 	else if (ft_isdigit(str[*j]))

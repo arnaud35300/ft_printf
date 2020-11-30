@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean_flag_and_precision.c                         :+:      :+:    :+:   */
+/*   get_flags.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/21 12:02:21 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/29 20:43:45 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/30 17:41:33 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/30 17:58:09 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	clean_flag_and_precision(t_format *format)
+char	get_flags(char *str, size_t *j)
 {
-	if (format->precision == '.' && format->flags == '0')
+	bool is_neg;
+	bool is_zero;
+
+	is_zero = FALSE;
+	is_neg = FALSE;
+	while (is_flag(str[*j]) && str[*j])
 	{
-		format->flags = NO_FLAG;
-		//format->width = NO_WIDTH;
+		if (str[*j] == '-')
+			is_neg = TRUE;
+		if (str[*j] == '0')
+			is_zero = TRUE;
+		(*j)++;
 	}
+	if (is_neg == TRUE)
+		return ('-');
+	if (is_zero == TRUE)
+		return ('0');
+	return (NO_FLAG);
 }

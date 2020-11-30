@@ -6,13 +6,13 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 15:18:58 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/27 19:38:17 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/29 23:02:33 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h" 
 
-static int	get_absolute(int n)
+static long int		get_absolute(long int n)
 {
 	if (n > 0)
 		return (n);
@@ -84,7 +84,7 @@ char	*itoa_and_prec(int n, unsigned int prec)
 }
 */
 
-static int	get_len(int n, int base_len)
+static int	get_len(long int n, long int base_len)
 {
 	unsigned int	len;
 
@@ -99,7 +99,14 @@ static int	get_len(int n, int base_len)
 	return (len);
 }
 
-char	*itoa_and_prec(int n, unsigned int prec, int base_len)
+static unsigned int	get_prec(long int n, unsigned int prec, bool is_prec)
+{
+	if (n < 0 && is_prec)
+		return (++prec);
+	return (prec);
+}
+
+char	*itoa_and_prec(long int n, unsigned int prec, long int base_len, bool is_prec)
 {
 	char			*r;
 	char			*base;
@@ -107,7 +114,7 @@ char	*itoa_and_prec(int n, unsigned int prec, int base_len)
 
 	len = get_len(n, base_len);
 	if (prec > len)
-		len = prec;
+		len = get_prec(n, prec, is_prec);
 	r = malloc(sizeof(char) * (len + 1));
 	base = malloc(sizeof(char) * (base_len + 1));
 	if (!base || !r)

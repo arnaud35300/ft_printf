@@ -6,7 +6,7 @@
 #    By: arguilla <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/11 08:48:33 by arguilla          #+#    #+#              #
-#    Updated: 2020/11/11 19:48:44 by arguilla         ###   ########.fr        #
+#    Updated: 2020/11/30 17:46:34 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,44 @@ CFLAGS		= -c -Wall -Wextra -Werror
 
 # [ OBJECTS ] #
 
-OBJS		= ft_printf.o
+OBJS		= ft_printf.o\
+			  assign_output.o\
+			  assign_output_p.o\
+			  assign_output_u.o\
+			  assign_tab_converter.o\
+			  check_number_or_asterisk.o\
+			  clean_buffer.o\
+			  clean_flag_and_precision.o\
+			  convert_char.o\
+			  convert_d_int.o\
+			  convert_hex_l.o\
+			  convert_hex_u.o\
+			  convert_i_int.o\
+			  convert_ptr.o\
+			  convert_str.o\
+			  convert_u_int.o\
+			  dispatch_argument.o\
+			  free_printf_struct.o\
+			  get_argument_len.o\
+			  get_type.o\
+			  increment.o\
+			  init_printf_struct.o\
+			  is_flag.o\
+			  is_negative.o\
+			  is_specifier.o\
+			  itoa_and_prec.o\
+			  itoa_lu_and_prec.o\
+			  itoa_u_and_prec.o\
+			  move_str_index.o\
+			  read_and_clean_buffer.o\
+			  read_argument.o\
+			  read_buffer.o\
+			  read_fmt.o\
+			  store_argument.o\
+			  store_char.o\
+			  store_number_or_asterisk.o\
+			  store_output.o\
+			  get_flags.o
 
 # [ PATH ] #
 
@@ -39,6 +76,7 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS)
 			@$(MAKE) -C $(LIBFT)
+			cp libft/libft.a  $(NAME)
 			@ar rc $(NAME) $(OBJS)
 			@ranlib $(NAME)	
 
