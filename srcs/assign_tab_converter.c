@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 09:09:45 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/21 11:49:52 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/30 18:15:57 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void	assign_tab_converter(t_func **tab)
 	tab[5] = &convert_u_int;
 	tab[6] = &convert_hex_l;
 	tab[7] = &convert_hex_u;
+	tab[8] = &convert_percent;
 }

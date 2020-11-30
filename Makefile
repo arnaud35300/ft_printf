@@ -6,7 +6,7 @@
 #    By: arguilla <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/11 08:48:33 by arguilla          #+#    #+#              #
-#    Updated: 2020/11/30 17:46:34 by arguilla         ###   ########.fr        #
+#    Updated: 2020/11/30 18:20:16 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,8 @@ OBJS		= ft_printf.o\
 			  store_char.o\
 			  store_number_or_asterisk.o\
 			  store_output.o\
-			  get_flags.o
+			  get_flags.o\
+			  convert_percent.o
 
 # [ PATH ] #
 

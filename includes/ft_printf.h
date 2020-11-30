@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:11:53 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/30 17:56:33 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/30 18:18:39 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ enum e_type
 	u,
 	x,
 	X,
+	pc,
 };
 
 /*
@@ -158,6 +159,7 @@ bool		convert_i_int(t_printf *pf, va_list *ap);
 bool		convert_u_int(t_printf *pf, va_list *ap);
 bool		convert_hex_l(t_printf *pf, va_list *ap);
 bool		convert_hex_u(t_printf *pf, va_list *ap);
+bool		convert_percent(t_printf *pf, va_list *ap);
 
 char		*assign_output(t_format *format, int nb);
 char		*assign_output_u(t_format *format, unsigned int nb);

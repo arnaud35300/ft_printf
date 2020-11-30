@@ -3,5 +3,5 @@
 
 int main(void)
 {
-	printf("%.2%");
+	ft_printf("%%");
 }
