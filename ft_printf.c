@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:14:02 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/29 23:30:39 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/30 20:47:58 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ int	ft_printf(const char *fmt, ...)
 	if (!pf)
 		return (EXIT_ERROR);
 	va_start(ap, fmt);
-	read_fmt(pf, &ap);
+	if (read_fmt(pf, &ap) == EXIT_ERROR)
+		result = EXIT_ERROR;
+	else
+		result = pf->len;
 	va_end(ap);
-	result = pf->len;
-	//printf("%d\n", pf->format.width);
 	free_printf_struct(pf);
 	return (result);
 }

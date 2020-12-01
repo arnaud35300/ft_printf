@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 15:54:11 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/21 07:52:15 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/30 20:46:41 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,13 @@ bool		read_fmt(t_printf *pf, va_list *ap)
 		if (pf->buffer.index >= BUFFER_SIZE)
 			read_and_clean_buffer(&(pf->buffer));
 		if (pf->str[i] == FMT_META_CHAR)
-			read_argument(pf, ap, &i);
+		{
+			if (read_argument(pf, ap, &i) == EXIT_ERROR)
+				return (EXIT_ERROR);
+		}
 		else
 			store_char(pf, &i);
 	}
 	read_and_clean_buffer(&(pf->buffer));
-	return (1);
+	return (TRUE);
 }

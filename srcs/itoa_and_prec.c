@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 15:18:58 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/29 23:02:33 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/12/01 16:53:28 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ char	*itoa_and_prec(long int n, unsigned int prec, long int base_len, bool is_pr
 	unsigned int	len;
 
 	len = get_len(n, base_len);
-	if (prec > len)
+	if ((prec > len) || (n < 0 && prec >= len && is_prec))
 		len = get_prec(n, prec, is_prec);
 	r = malloc(sizeof(char) * (len + 1));
 	base = malloc(sizeof(char) * (base_len + 1));

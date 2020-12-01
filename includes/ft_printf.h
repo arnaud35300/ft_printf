@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:11:53 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/30 18:18:39 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/30 20:14:11 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ int			ft_printf(const char *fmt, ...);
 // structures
 t_printf	*init_printf_struct(const char *content);
 void		free_printf_struct(t_printf *pf);
+bool	free_output(char *output, bool response);
 
 // parsing
 bool		read_fmt(t_printf *pf, va_list *ap);

@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 08:17:25 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/30 17:50:11 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/30 20:59:29 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
+/*
 static void	store_percent(t_printf *pf, size_t *i, size_t *j)
 {
 	*i = ++(*j);
@@ -22,7 +23,7 @@ static void	store_percent(t_printf *pf, size_t *i, size_t *j)
 	pf->buffer.buffer[pf->buffer.index] = '%';
 	pf->buffer.index++;
 	pf->len++;
-}
+}*/
 
 /*
 ** Functions who take the current position to argument in fmt, and check if
@@ -35,10 +36,6 @@ bool		read_argument(t_printf *pf, va_list *ap, size_t *i)
 	j = *i;
 	move_str_index(pf->str[j], "%", &j);
 	get_flags(pf->str, &j);
-	/*
-	move_str_index(pf->str[j], "-0", &j); // suspicious
-	move_str_index(pf->str[j], "-0", &j); // suspicious
-	*/
 	check_number_or_asterisk(pf->str, &j);
 	move_str_index(pf->str[j], ".", &j);
 	check_number_or_asterisk(pf->str, &j);
@@ -46,11 +43,9 @@ bool		read_argument(t_printf *pf, va_list *ap, size_t *i)
 	{
 		store_argument(pf, ap, i);
 		*i = ++j;
-		dispatch_argument(pf, ap, i);
+		return (dispatch_argument(pf, ap, i));
 	}
-	else if (pf->str[j] == '%')
-		store_percent(pf, i, &j);
 	else
 		increment(pf, i);
-	return (1);
+	return (TRUE);
 }

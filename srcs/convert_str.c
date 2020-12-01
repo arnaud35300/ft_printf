@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 09:25:36 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/29 20:05:26 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/11/30 20:44:21 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,11 @@ bool		convert_str(t_printf *pf, va_list *ap)
 		output = store_unvalid_str(pf);
 	else
 		output = store_valid_str(pf, arg);
-	/*len = ft_strlen(arg);
-	if (pf->format.precision_width < len && pf->format.precision == '.')
-		len = pf->format.precision_width;
-	output = malloc(sizeof(char) * (len + 1));
-	*/
 	if (!output)
-		return (EXIT_ERROR);
-	//ft_strlcpy(output, arg, len + 1);
+		return (free_output(output, EXIT_ERROR));
 	if (pf->format.flags == '-')
 		store_output(pf, output, ft_strlen(output), SPACE_AFTER);
 	else
 		store_output(pf, output, ft_strlen(output), SPACE_BEFORE);
-	free (output);
-	return (TRUE);
+	return (free_output(output, TRUE));
 }

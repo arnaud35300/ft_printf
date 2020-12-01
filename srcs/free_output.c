@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   assign_output.c                                    :+:      :+:    :+:   */
+/*   free_output.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 08:12:01 by arguilla          #+#    #+#             */
-/*   Updated: 2020/12/01 15:31:40 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/30 20:12:58 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/30 20:16:47 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *assign_output(t_format *format, int nb)
+bool	free_output(char *output, bool response)
 {
-	int base_len;
-	
-	base_len = 10;
-	if (nb == 0 && format->precision == '.' && format->precision_width == 0)
-		return (ft_strdup(""));
-	if (format->precision == '.')
-		return (itoa_and_prec(nb, format->precision_width, base_len, TRUE));
-	if (format->flags == '0')
-		return (itoa_and_prec(nb, format->width, base_len, FALSE));
-	return (itoa_and_prec(nb, 0, base_len, FALSE));
+	free(output);
+	return (response);
 }
