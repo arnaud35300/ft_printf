@@ -13,8 +13,13 @@
 #include "ft_printf.h"
 
 /*
-** Functions who check if current character is '*' and increment a counter,
-** or increment a counter while current character is a number.
+** Check if current character is '*' and increment a counter, or increment a
+** counter while current character is a number.
+**
+** @param	str	=> the string contains a number or asterisk.
+** @param	j	=> the index which allows to trabeled str.
+**
+** @return	void.
 */
 
 void	check_number_or_asterisk(char *str, size_t *j)

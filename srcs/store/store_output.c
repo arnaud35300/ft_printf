@@ -12,6 +12,17 @@
 
 #include "ft_printf.h"
 
+/*
+** Store spaces in the buffer.
+**
+** @param	pf 			=> the printf structure which contains
+** the buffer structure.
+** @param	output_len	=> the output length will be compared with width to
+** determine the number of spaces to store.
+**
+ ** @return	void.
+*/
+
 static void		store_space(t_printf *pf, size_t output_len)
 {
 	while (pf->format.width > output_len)
@@ -24,6 +35,16 @@ static void		store_space(t_printf *pf, size_t output_len)
 		pf->len++;
 	}
 }
+
+/*
+** Store output value in the buffer.
+**
+** @param	pf 		=> the printf structure which contains
+** the buffer structure.
+** @param	output	=> the string to be stored in the buffer.
+**
+ ** @return	void.
+*/
 
 static void		store_arg(t_printf *pf, char *output)
 {
@@ -40,6 +61,19 @@ static void		store_arg(t_printf *pf, char *output)
 		output++;
 	}
 }
+
+/*
+** Store output value with his width in the buffer.
+**
+** @param	pf 			=> the printf structure which contains
+** the buffer structure.
+** @param	output		=> the string to be stored in the buffer.
+** @param	output_len	=> the output length.
+** @param	order		=> the order in which the spaces will be
+** stored relative to the string.
+**
+ ** @return	void.
+*/
 
 void			store_output(t_printf *pf, char *output,
 				size_t output_len, bool order)

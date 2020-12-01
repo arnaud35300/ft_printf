@@ -12,6 +12,15 @@
 
 #include "ft_printf.h"
 
+/*
+** Store the conversion of the current argument in the buffer.
+**
+** @param	pf	=> the printf structure.
+** @param	ap	=> the ap structure which contains the list of arguments.
+**
+ ** @return	boolean value, EXIT_ERROR if malloc fails.
+*/
+
 bool		convert_ptr(t_printf *pf, va_list *ap)
 {
 	char	*output;

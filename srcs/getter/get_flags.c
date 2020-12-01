@@ -12,6 +12,15 @@
 
 #include "ft_printf.h"
 
+/*
+** browse flags into a string and return them.
+**
+** @param	str	=> the str will be traveled to find flags.
+** @param	j	=>  the current position into str.
+**
+** @return	flag, '\0' if there is no match.
+*/
+
 char	get_flags(char *str, size_t *j)
 {
 	bool is_neg;

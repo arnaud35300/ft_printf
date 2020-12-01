@@ -12,6 +12,15 @@
 
 #include "ft_printf.h"
 
+/*
+** Calculate the length of a number.
+**
+** @param	n			=> the number where we want to know its length.
+** @param	base_len	=> the base length.
+**
+** @return	the n length.
+*/
+
 static int	get_len(ulong n, ulong base_len)
 {
 	ulong	len;
@@ -26,6 +35,21 @@ static int	get_len(ulong n, ulong base_len)
 	}
 	return (len);
 }
+
+/*
+** Convert unsigned long to string.
+**
+** @param	n		 	=> the number to be converted.
+** @param	prec	 	=> the precision width.
+** @param	base_len	=> the length of the base to which the number
+** should be converted.
+** @param	is_prec		=> specifier that allows to know if the variable
+** prec is the width of a flag '0' or of a precision '.', both reacting
+** differently.
+**
+** @return	a string representing the conversion of the number, NULL
+** if malloc fails.
+*/
 
 char		*itoa_lu_and_prec(ulong n, ulong prec, ulong base_len)
 {

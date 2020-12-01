@@ -12,6 +12,14 @@
 
 #include "ft_printf.h"
 
+/*
+** Read the buffer property into buffer structure.
+**
+** @param	buffer	=> the buffer structure.
+**
+** @return	void.
+*/
+
 void		read_buffer(t_buffer *buffer)
 {
 	write(buffer->fd, buffer->buffer, buffer->index);

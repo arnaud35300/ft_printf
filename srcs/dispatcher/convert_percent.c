@@ -12,6 +12,15 @@
 
 #include "ft_printf.h"
 
+/*
+** Store the conversion of the current argument in the buffer.
+**
+** @param	pf	=> the printf structure.
+** @param	ap	=> the ap structure which contains the list of arguments.
+**
+ ** @return	boolean value.
+*/
+
 bool		convert_percent(t_printf *pf, va_list *ap)
 {
 	(void)ap;

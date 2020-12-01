@@ -13,8 +13,13 @@
 #include "ft_printf.h"
 
 /*
-** Functions who check if a character is into a string
-** and increments the second argument
+** Compare a character with a string and give the character that matches.
+**
+** @param	c 		=> the character to compare.
+** @param	compare	=> the string where will compare the character c.
+** @param	j		=> the current index which allows to traveling str.
+**
+** @return	c if is into compare string, '\0' otherwise.
 */
 
 char	move_str_index(char c, char *compare, size_t *j)

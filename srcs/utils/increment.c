@@ -12,6 +12,15 @@
 
 #include "ft_printf.h"
 
+/*
+** Increment len property of the printf structure and i variable.
+**
+** @param	pf	=> the printf structure.
+** @param	i	=> the i iterator.
+**
+** @return	void.
+*/
+
 void	increment(t_printf *pf, size_t *i)
 {
 	(*i)++;

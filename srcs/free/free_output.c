@@ -12,6 +12,15 @@
 
 #include "ft_printf.h"
 
+/*
+** free output string.
+**
+** @param	output		=> the string to free.
+** @param	response	=> the code response to return.
+**
+** @return	r.
+*/
+
 bool	free_output(char *output, bool response)
 {
 	free(output);

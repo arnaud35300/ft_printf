@@ -12,6 +12,17 @@
 
 #include "ft_printf.h"
 
+/*
+** Read string and delegate to other functions according to the content of
+** this one.
+**
+** @param	pf	=> the printf structure which contains the string to
+** traveling.
+** @param	ap	=> the ap structure which contains the list of arguments.
+**
+** @return	boolean value, EXIT_ERROR if malloc fails.
+*/
+
 bool		read_fmt(t_printf *pf, va_list *ap)
 {
 	size_t	i;

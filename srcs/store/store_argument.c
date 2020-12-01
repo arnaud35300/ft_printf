@@ -14,7 +14,13 @@
 #include <stdio.h>
 
 /*
-** Functions who store current argument into format struct.
+** Store values in the properties of the format structure.
+**
+** @param	pf	=> the printf structure which contains the format structure.
+** @param	ap	=> the ap structure which contains the list of arguments.
+** @param	i	=> the current index which allows to traveling str.
+**
+** @return	boolean value, EXIT_ERROR if malloc fails.
 */
 
 bool	store_argument(t_printf *pf, va_list *ap, size_t *i)

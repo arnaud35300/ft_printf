@@ -12,6 +12,14 @@
 
 #include "ft_printf.h"
 
+/*
+** Check if a character is a flag.
+**
+** @param	c	=> the character will be compared with flag list.
+**
+** @return	boolean value.
+*/
+
 bool	is_flag(char c)
 {
 	return (c == '0' || c == '-');

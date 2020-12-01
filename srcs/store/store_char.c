@@ -12,6 +12,15 @@
 
 #include "ft_printf.h"
 
+/*
+** Store a character in the buffer.
+**
+** @param	pf	=> the printf structure which contains the buffer structure.
+** @param	i	=> the current index which allows to traveling str.
+**
+** @return	void.
+*/
+
 void		store_char(t_printf *pf, size_t *i)
 {
 	pf->buffer.buffer[pf->buffer.index] = pf->str[*i];

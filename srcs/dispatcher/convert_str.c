@@ -12,6 +12,17 @@
 
 #include "ft_printf.h"
 
+/*
+** Same as store_valid_str function, except the management of the precision,
+** this one cutting entirely the word if the width precision is less than
+** the length of the word.
+**
+** @param	pf	=> the printf structure.
+** @param	ap	=> the ap structure which contains the list of arguments.
+**
+ ** @return	the result of the conversion of the argument, NULL if malloc fails.
+*/
+
 static char		*store_unvalid_str(t_printf *pf)
 {
 	if (pf->format.precision == '.' && pf->format.precision_width < 6)
@@ -19,6 +30,16 @@ static char		*store_unvalid_str(t_printf *pf)
 	else
 		return (ft_strdup("(null)"));
 }
+
+/*
+** Assign the truncated value of the conversion of the argument based on the
+** precision.
+**
+** @param	pf	=> the printf structure.
+** @param	ap	=> the ap structure which contains the list of arguments.
+**
+ ** @return	the result of the conversion of the argument, NULL if malloc fails.
+*/
 
 static char		*store_valid_str(t_printf *pf, char *arg)
 {
@@ -34,6 +55,15 @@ static char		*store_valid_str(t_printf *pf, char *arg)
 	ft_strlcpy(output, arg, len + 1);
 	return (output);
 }
+
+/*
+** Store the conversion of the current argument in the buffer.
+**
+** @param	pf	=> the printf structure.
+** @param	ap	=> the ap structure which contains the list of arguments.
+**
+ ** @return	boolean value, EXIT_ERROR if malloc fails.
+*/
 
 bool			convert_str(t_printf *pf, va_list *ap)
 {

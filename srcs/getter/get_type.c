@@ -13,7 +13,11 @@
 #include "ft_printf.h"
 
 /*
-** Functions who take a char and compare with all types notations.
+** give the type by comparing the character with the list of types.
+**
+** @param	c => the character to compare.
+**
+** @return	match index.
 */
 
 int		get_type(char c)

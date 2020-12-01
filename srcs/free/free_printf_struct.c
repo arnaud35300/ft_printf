@@ -12,6 +12,15 @@
 
 #include "ft_printf.h"
 
+/*
+** free printf structure.
+**
+** @param	pf	=> the printf structure to free.
+** @param	r	=> the code response to return.
+**
+** @return	r.
+*/
+
 bool		free_printf_struct(t_printf *pf, bool response)
 {
 	free(pf);

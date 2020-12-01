@@ -12,12 +12,29 @@
 
 #include "ft_printf.h"
 
+/*
+** Give the absolute vaule of a number
+**
+** @param	n	=> the number where we want to know its absolute value.
+**
+** @return	the absolute value of n.
+*/
+
 static long		get_absolute(long n)
 {
 	if (n > 0)
 		return (n);
 	return (-n);
 }
+
+/*
+** Calculate the length of a number.
+**
+** @param	n			=> the number where we want to know its length.
+** @param	base_len	=> the base length.
+**
+** @return	the n length.
+*/
 
 static uint		get_len(long n, long base_len)
 {
@@ -34,12 +51,38 @@ static uint		get_len(long n, long base_len)
 	return (len);
 }
 
+/*
+** Adjust the width precision if the number is negative.
+**
+** @param	n		=> the number to be converted.
+** @param	prec	=> the width precision.
+** @param	is_prec	=> specifier which allows to interpreted the precision
+** differently.
+**
+** @return	the new width precision.
+*/
+
 static uint		get_prec(long n, uint prec, bool is_prec)
 {
 	if (n < 0 && is_prec)
 		return (++prec);
 	return (prec);
 }
+
+/*
+** Convert long to string.
+**
+** @param	n		 	=> the number to be converted.
+** @param	prec	 	=> the precision width.
+** @param	base_len	=> the length of the base to which the number
+** should be converted.
+** @param	is_prec		=> specifier that allows to know if the variable
+** prec is the width of a flag '0' or of a precision '.', both reacting
+** differently.
+**
+** @return	a string representing the conversion of the number, NULL
+** if malloc fails.
+*/
 
 char			*itoa_and_prec(long n, uint prec, long base_len, bool is_prec)
 {

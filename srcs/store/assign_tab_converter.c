@@ -12,6 +12,14 @@
 
 #include "ft_printf.h"
 
+/*
+** Assign values in a array of function pointers.
+**
+** @param	tab	=> the array that will contain the values.
+**
+** @return	void.
+*/
+
 void	assign_tab_converter(t_func **tab)
 {
 	tab[0] = &convert_char;

@@ -12,6 +12,16 @@
 
 #include "ft_printf.h"
 
+/*
+** Dispatch to the right function according to the value of the type of the
+** current argument.
+**
+** @param	pf	=> the printf structure.
+** @param	ap	=> the ap structure which contains the list of arguments.
+**
+ ** @return	boolean value, EXIT_ERROR if malloc fails.
+*/
+
 bool	dispatch_argument(t_printf *pf, va_list *ap)
 {
 	t_func *tab[9];

@@ -12,6 +12,15 @@
 
 #include "ft_printf.h"
 
+/*
+** free base string.
+**
+** @param	base	=> the string to free.
+** @param	r		=> the string to return.
+**
+** @return	r.
+*/
+
 char	*free_itoa(char *base, char *r)
 {
 	free(base);

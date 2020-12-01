@@ -12,6 +12,15 @@
 
 #include "ft_printf.h"
 
+/*
+** Check if a number is negative, and if the number is negative, convert it
+** to positive number.
+**
+** @param	nb	=> the number to test.
+**
+** @return	boolean value.
+*/
+
 bool	is_negative(int *nb)
 {
 	if (*nb < 0)

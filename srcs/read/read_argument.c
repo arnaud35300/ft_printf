@@ -13,8 +13,14 @@
 #include "ft_printf.h"
 
 /*
-** Functions who take the current position to argument in fmt, and check if
-** this argument is valid and return a boolean.
+** Check against the i position if the next characters are available to form
+** a valid argument.
+**
+** @param	pf	=> the printf structure which contains the string to traveling.
+** @param	ap	=> the ap structure which contains the list of arguments.
+** @param	i	=> the current index which allows to traveling str.
+**
+** @return	boolean value, EXIT_ERROR if malloc fails.
 */
 
 bool		read_argument(t_printf *pf, va_list *ap, size_t *i)

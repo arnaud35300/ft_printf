@@ -12,6 +12,14 @@
 
 #include "ft_printf.h"
 
+/*
+** Clean the buffer values.
+**
+** @param	buffer	=> the buffer structure.
+**
+** @return	void.
+*/
+
 void	clean_buffer(t_buffer *buffer)
 {
 	int i;

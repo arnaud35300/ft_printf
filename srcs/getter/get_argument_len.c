@@ -12,6 +12,16 @@
 
 #include "ft_printf.h"
 
+/*
+** compute the length of the output string according to the properties of
+** the format structure.
+**
+** @param	format	=> the format structure which calculates the output length.
+** @param	r		=> the output string where we calculate its length.
+**
+** @return	the new length.
+*/
+
 size_t		get_argument_len(t_format *format, char *output)
 {
 	size_t len;

@@ -12,6 +12,15 @@
 
 #include "ft_printf.h"
 
+/*
+** Initialize properties of the printf structure.
+**
+** @param	content	=> the content string is the first parameters
+** of the ft_printf functions.
+**
+** @return	the printf structure.
+*/
+
 t_printf	*init_printf_struct(const char *content)
 {
 	t_printf	*pf;

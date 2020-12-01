@@ -12,6 +12,15 @@
 
 #include "ft_printf.h"
 
+/*
+** Assign NO_FLAG value when the current format structure contains flag '0'
+** and precision '.'.
+**
+** @param	format	=> the format structure.
+**
+** @return	void.
+*/
+
 void	clean_flag_and_precision(t_format *format)
 {
 	if (format->precision == '.' && format->flags == '0')

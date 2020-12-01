@@ -12,6 +12,16 @@
 
 #include "ft_printf.h"
 
+/*
+** Dispatch to the correct conversion function based on the received values.
+**
+** @param	format	=> the format structure which contains precision and width
+** properties.
+** @param	nb		=> the current argument of the va_list.
+**
+** @return	the nb converted to string, NULL if malloc fails.
+*/
+
 char	*assign_output_u(t_format *format, uint nb)
 {
 	uint base_len;

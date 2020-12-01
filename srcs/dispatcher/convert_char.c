@@ -12,6 +12,15 @@
 
 #include "ft_printf.h"
 
+/*
+** Store a character in the buffer.
+**
+** @param	pf	=> the printf structure.
+** @param	ap	=> the ap structure which contains the list of arguments.
+**
+ ** @return	void.
+*/
+
 static void		store_char_arg(t_printf *pf, va_list *ap)
 {
 	if (!(pf->buffer.index < BUFFER_SIZE))
@@ -20,6 +29,15 @@ static void		store_char_arg(t_printf *pf, va_list *ap)
 	pf->buffer.index++;
 	pf->len++;
 }
+
+/*
+** Store the conversion of the current argument in the buffer.
+**
+** @param	pf	=> the printf structure.
+** @param	ap	=> the ap structure which contains the list of arguments.
+**
+ ** @return	boolean value.
+*/
 
 bool			convert_char(t_printf *pf, va_list *ap)
 {

@@ -12,6 +12,14 @@
 
 #include "ft_printf.h"
 
+/*
+** Check if a character is a specifier.
+**
+** @param	c	=> the character will be compared with specifiers list.
+**
+** @return	boolean value.
+*/
+
 bool		is_specifier(char c)
 {
 	return (c == FMT_CHAR || c == FMT_STR || c == FMT_PTR || c == FMT_D_INT
