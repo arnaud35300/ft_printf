@@ -17,7 +17,6 @@
  ** Include dependencies and librairies
 */
 
-
 # include "libft.h"
 # include <limits.h>
 # include <ctype.h>
@@ -29,10 +28,6 @@
  ** Macros
 */
 
-/*
-** Types and flags
-*/
-
 # define FMT_META_CHAR		'%'
 # define FMT_CHAR			'c'
 # define FMT_STR			's'
@@ -42,23 +37,19 @@
 # define FMT_U_INT			'u'
 # define FMT_HEX_L			'x'
 # define FMT_HEX_U			'X'
-
-# define STDOUT				1
 # define bool				int
 # define TRUE				1
 # define FALSE				0
-# define BUFFER_SIZE		1 
-
+# define BUFFER_SIZE		40 
 # define NO_FLAG			'\0' 
 # define NO_WIDTH			0
 # define NO_PRECISION		'\0'
 # define NO_PREC_WIDTH		0
 # define NO_TYPE			-1
 # define EXIT_ERROR			-1
-# define SPECIFIER_COUNT	8
-# define NB_SIZE			11
 # define SPACE_BEFORE		1
 # define SPACE_AFTER		2
+
 /*
  ** Enums
 */
@@ -104,72 +95,21 @@ typedef struct		s_printf
 	t_format	format;
 }					t_printf;
 
+typedef bool	t_func(t_printf *pf, va_list *ap);
 
 /*
 ** Functions prototypes
 */
-
 int			ft_printf(const char *fmt, ...);
 
-
-// structures
-t_printf	*init_printf_struct(const char *content);
-void		free_printf_struct(t_printf *pf);
-bool	free_output(char *output, bool response);
-
-// parsing
-bool		read_fmt(t_printf *pf, va_list *ap);
-void		store_char(t_printf *pf, size_t *i);
-bool		read_argument(t_printf *pf, va_list *ap, size_t *i);
-
-// store
-bool		store_argument(t_printf *pf, va_list *ap, size_t *i);
-int			store_number_or_asterisk(char *str, size_t *j, va_list *ap, t_format *format);
-char		move_str_index(char c, char *compare, size_t *j);
-void		check_number_or_asterisk(char *str, size_t *j);
-void		store_output(t_printf *pf, char *output, size_t output_len, bool order);
-
-// dispatch
-bool	dispatch_argument(t_printf *pf, va_list *ap, size_t *i);
-
-// validator
-bool		is_flag(char c);
-bool		is_specifier(char c);
-bool		is_negative(int *nb);
-
-// getter
-int			get_type(char c);
-char		get_flags(char *str, size_t *j);
-
-// buffer
-void		clean_buffer(t_buffer *buffer);
-void		read_buffer(t_buffer *buffer);
-void		read_and_clean_buffer(t_buffer *buffer);
-
-// utils
-void		increment(t_printf *pf, size_t *i);
-void		clean_flag_and_precision(t_format *format);
-size_t		get_argument_len(t_format *format, char *output);
-
-// convertion
-bool		convert_char(t_printf *pf, va_list *ap);
-bool		convert_str(t_printf *pf, va_list *ap);
-bool		convert_ptr(t_printf *pf, va_list *ap);
-bool		convert_d_int(t_printf *pf, va_list *ap);
-bool		convert_i_int(t_printf *pf, va_list *ap);
-bool		convert_u_int(t_printf *pf, va_list *ap);
-bool		convert_hex_l(t_printf *pf, va_list *ap);
-bool		convert_hex_u(t_printf *pf, va_list *ap);
-bool		convert_percent(t_printf *pf, va_list *ap);
-
-char		*assign_output(t_format *format, int nb);
-char		*assign_output_u(t_format *format, unsigned int nb);
-char		*assign_output_p(t_format *format, void *nb);
-char		*itoa_and_prec(long int n, unsigned int prec, long int base_len, bool is_prec);
-char		*itoa_u_and_prec(unsigned int n, unsigned int prec, unsigned int base_len);
-char		*itoa_lu_and_prec(long unsigned int n, long unsigned int prec, long unsigned int base_len);
-// functions tab
-typedef bool	t_func(t_printf *pf, va_list *ap);
-void		assign_tab_converter(t_func **tab);
+# include "free.h"
+# include "store.h"
+# include "validator.h"
+# include "getter.h"
+# include "read.h"
+# include "dispatcher.h"
+# include "clean.h"
+# include "utils.h"
+# include "converter.h"
 
 #endif

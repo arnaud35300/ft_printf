@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   increment.c                                        :+:      :+:    :+:   */
+/*   validator.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 08:11:13 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/18 08:13:26 by arguilla         ###   ########.fr       */
+/*   Created: 2020/12/01 19:20:16 by arguilla          #+#    #+#             */
+/*   Updated: 2020/12/01 19:20:19 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef VALIDATOR_H
+# define VALIDATOR_H
 
+bool		is_flag(char c);
+bool		is_specifier(char c);
+bool		is_negative(int *nb);
+void		check_number_or_asterisk(char *str, size_t *j);
 
-void	increment(t_printf *pf, size_t *i)
-{
-	(*i)++;
-	pf->buffer.index++;
-	pf->len++;
-}
+#endif

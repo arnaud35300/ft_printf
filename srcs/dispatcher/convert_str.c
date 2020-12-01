@@ -22,8 +22,8 @@ static char		*store_unvalid_str(t_printf *pf)
 
 static char		*store_valid_str(t_printf *pf, char *arg)
 {
-	char *output;
-	size_t len;
+	char	*output;
+	size_t	len;
 
 	len = ft_strlen(arg);
 	if (pf->format.precision_width < len && pf->format.precision == '.')

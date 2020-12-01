@@ -18,6 +18,19 @@ static void	assign_width(int *width, t_format *format)
 	format->flags = '-';
 }
 
+static void clean_precision(t_format *format)
+{
+	format->precision = NO_PRECISION;
+	format->precision_width = NO_PREC_WIDTH;
+}
+
+static void width_atoi(char c, int *width, int *i, size_t *j)
+{
+	*width = *width * 10 + c - 48;
+	(*j)++;
+	(*i)--;
+}
+
 /*
 ** Functions who check if current character is '*' and increment a counter,
 ** or increment a counter while current character is a number. This version
@@ -27,7 +40,7 @@ int		store_number_or_asterisk(char *str, size_t *j, va_list *ap, t_format *forma
 {
 	int width;
 	int i;
-// FUNCTIONS TOO LONG !!!!!!!!!!!!!!!!!!!!!!!!!!! NORMINETTE
+	
 	width = 0;
 	i = 10;
 	if (str[*j] == '*' && str[*j])
@@ -36,12 +49,7 @@ int		store_number_or_asterisk(char *str, size_t *j, va_list *ap, t_format *forma
 		if (width < 0)
 		{
 			if (str[*j - 1] == '.')
-			{
-				// REFACTORING
-				format->precision = NO_PRECISION;
-				format->precision_width = NO_PREC_WIDTH;
-				//width = 0;
-			}
+				clean_precision(format);
 			else if(str[*j - 1] == FMT_META_CHAR || format->flags == '0')
 				assign_width(&width, format);
 			else
@@ -51,10 +59,6 @@ int		store_number_or_asterisk(char *str, size_t *j, va_list *ap, t_format *forma
 	}
 	else if (ft_isdigit(str[*j]))
 		while (ft_isdigit(str[*j]) && str[*j] && i)
-		{
-			width = width * 10 + str[*j] - 48;
-			(*j)++;
-			i--;
-		}
+			width_atoi(str[*j], &width, &i, j);
 	return (width);
 }

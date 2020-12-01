@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_argument_len.c                                 :+:      :+:    :+:   */
+/*   converter.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/21 16:11:54 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/25 08:30:28 by arguilla         ###   ########.fr       */
+/*   Created: 2020/12/01 19:18:32 by arguilla          #+#    #+#             */
+/*   Updated: 2020/12/01 19:18:39 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef CONVERTER_H
+# define CONVERTER
 
-size_t		get_argument_len(t_format *format, char *output)
-{
-	size_t len;
+char		*itoa_and_prec(long int n, unsigned int prec, long int base_len, bool is_prec);
+char		*itoa_u_and_prec(unsigned int n, unsigned int prec, unsigned int base_len);
+char		*itoa_lu_and_prec(long unsigned int n, long unsigned int prec, long unsigned int base_len);
 
-	len = 0;
-	len = ft_strlen(output);
-	if (format->precision_width > len)
-		len = format->precision_width;
-	if (format->width > len)
-		len = format->width;
-	return (len);
-}
+#endif

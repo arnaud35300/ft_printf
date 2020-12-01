@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_percent.c                                  :+:      :+:    :+:   */
+/*   free.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 18:12:13 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/30 21:02:04 by arguilla         ###   ########.fr       */
+/*   Created: 2020/12/01 19:19:18 by arguilla          #+#    #+#             */
+/*   Updated: 2020/12/01 19:19:20 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FREE_H
+# define FREE_H
 
-bool		convert_percent(t_printf *pf, va_list *ap)
-{
-	// FIX TEMPORAIRE !!!!
-	write(1, "%", 1);
-	pf->len++;
-	return (TRUE);
-	// FIX POUR PFT 2019
-	(void)ap;
-	if (pf->format.flags == '-')
-		store_output(pf, "%", 1, SPACE_AFTER);
-	else
-		store_output(pf, "%", 1, SPACE_BEFORE);
-	return (TRUE);
-}
+bool		free_printf_struct(t_printf *pf, bool response);
+bool		free_output(char *output, bool response);
+char    	*free_itoa(char *base, char *r);
+
+#endif

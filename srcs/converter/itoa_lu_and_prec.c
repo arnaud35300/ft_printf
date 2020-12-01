@@ -32,16 +32,14 @@ char	*itoa_lu_and_prec(long unsigned int n, long unsigned int prec, long unsigne
 	char			*r;
 	char			*base;
 	long unsigned int	len;
-	//char *r_prefix;
 	
 	len = get_len(n, base_len) + 2;
 	if (prec > len)
 		len = prec + 2;
 	r = malloc(sizeof(char) * (len + 1));
 	base = malloc(sizeof(char) * (base_len + 1));
-	//r_prefix = malloc(sizeof(char) * (len + 3));
 	if (!base || !r)
-		return (NULL);
+		return (free_itoa(base, r));
 	ft_memset(r, '0', len);
 	r[1] = 'x';
 	ft_strlcpy(base, "0123456789abcdef", base_len + 1);
@@ -52,6 +50,5 @@ char	*itoa_lu_and_prec(long unsigned int n, long unsigned int prec, long unsigne
 		r[len] = base[n % base_len];
 		n = n / base_len;
 	}
-	free(base);
-	return (r);
+	return (free_itoa(base, r));
 }

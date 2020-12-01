@@ -20,14 +20,7 @@ t_printf	*init_printf_struct(const char *content)
 	if (!pf)
 		return (pf);
 	pf->len = 0;
-	pf->str = NULL;
 	pf->str = (char *)content;
-	if (!pf->str)
-	{
-		pf = NULL;
-		free(pf);
-		return (pf);
-	}
 	pf->format.flags = NO_FLAG;
 	pf->format.width = NO_WIDTH;
 	pf->format.precision = NO_PRECISION;

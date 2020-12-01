@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_printf_struct.c                               :+:      :+:    :+:   */
+/*   read_and_clean_buffer.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 09:00:01 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/26 11:41:27 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/18 08:24:01 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/18 08:24:54 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		free_printf_struct(t_printf *pf)
+void		read_and_clean_buffer(t_buffer *buffer)
 {
-	if (!pf)
-		return ;
-	//free(pf->str);
-	free(pf);
+	read_buffer(buffer);
+	clean_buffer(buffer);
 }

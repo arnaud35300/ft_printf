@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static void	store_space(t_printf *pf, size_t output_len)
 {

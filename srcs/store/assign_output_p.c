@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clean_flag_and_precision.c                         :+:      :+:    :+:   */
+/*   assign_output_p.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/21 12:02:21 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/29 20:43:45 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/29 14:58:00 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/30 21:19:32 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	clean_flag_and_precision(t_format *format)
+char *assign_output_p(t_format *format, void *nb)
 {
-	if (format->precision == '.' && format->flags == '0')
-	{
-		format->flags = NO_FLAG;
-		//format->width = NO_WIDTH;
-	}
+	unsigned int base_len;
+
+	base_len = 16;
+	if (nb == NULL)
+		return (ft_strdup("(nil)"));
+	if (format->precision == '.')
+		return (itoa_lu_and_prec((uintptr_t)nb, format->precision_width, base_len));
+	if (format->flags == '0')
+		return (itoa_lu_and_prec((uintptr_t)nb, format->width, base_len));
+	return (itoa_lu_and_prec((uintptr_t)nb, 0, base_len));
 }

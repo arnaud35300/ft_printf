@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa2.c                                         :+:      :+:    :+:   */
+/*   itoa_u_and_prec.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 15:18:58 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/27 18:43:26 by arguilla         ###   ########.fr       */
+/*   Created: 2020/11/26 08:31:32 by arguilla          #+#    #+#             */
+/*   Updated: 2020/11/27 19:38:38 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf.h" 
 
 static int	get_len(unsigned int n, unsigned int base_len)
 {
@@ -39,7 +39,7 @@ char	*itoa_u_and_prec(unsigned int n, unsigned int prec, unsigned int base_len)
 	r = malloc(sizeof(char) * (len + 1));
 	base = malloc(sizeof(char) * (base_len + 1));
 	if (!base || !r)
-		return (NULL);
+		return (free_itoa(base, r));
 	ft_memset(r, '0', len);
 	ft_strlcpy(base, "0123456789abcdef", base_len + 1);
 	r[len] = '\0';
@@ -48,6 +48,6 @@ char	*itoa_u_and_prec(unsigned int n, unsigned int prec, unsigned int base_len)
 		--len;
 		r[len] = base[n % base_len];
 		n = n / base_len;
-	}
-	return (r);
+	}	
+	return (free_itoa(base, r));
 }

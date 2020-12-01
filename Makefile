@@ -63,18 +63,19 @@ OBJS		= ft_printf.o\
 			  store_output.o\
 			  get_flags.o\
 			  convert_percent.o\
-			  free_output.o
+			  free_output.o\
+			  free_itoa.o
 
 # [ PATH ] #
 
-VPATH		= includes:srcs
+VPATH		= includes:srcs:srcs/free:srcs/store:srcs/validator:srcs/getter:srcs/read:srcs/dispatcher:srcs/utils:srcs/clean:srcs/converter
 
 # [ RULES ] #
 
 all:		$(NAME)
 
 %.o : %.c
-			@$(CC) $(CFLAGS) -I./includes -I./libft $< -o $@
+			@$(CC) $(CFLAGS) -I./includes -I./libft -I./srcs/free -I./srcs/store -I./srcs/validator -I./srcs/getter -I./srcs/read -I./srcs/dispatcher -I./srcs/utils -I./srcs/clean -I./srcs/converter $< -o $@
 
 $(NAME):	$(OBJS)
 			@$(MAKE) -C $(LIBFT)

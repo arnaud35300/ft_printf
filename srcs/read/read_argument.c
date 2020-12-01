@@ -11,19 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <unistd.h>
-#include <stdio.h>
-
-/*
-static void	store_percent(t_printf *pf, size_t *i, size_t *j)
-{
-	*i = ++(*j);
-	if (!(pf->buffer.index < BUFFER_SIZE))
-		read_and_clean_buffer(&(pf->buffer));
-	pf->buffer.buffer[pf->buffer.index] = '%';
-	pf->buffer.index++;
-	pf->len++;
-}*/
 
 /*
 ** Functions who take the current position to argument in fmt, and check if
@@ -43,7 +30,7 @@ bool		read_argument(t_printf *pf, va_list *ap, size_t *i)
 	{
 		store_argument(pf, ap, i);
 		*i = ++j;
-		return (dispatch_argument(pf, ap, i));
+		return (dispatch_argument(pf, ap));
 	}
 	else
 		increment(pf, i);

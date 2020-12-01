@@ -18,19 +18,19 @@ int	ft_printf(const char *fmt, ...)
 	t_printf	*pf;
 	va_list		ap;
 	int			result;
+
 	if (!fmt)
 		return (EXIT_ERROR);
 	pf = init_printf_struct(fmt);
 	if (!pf)
-		return (EXIT_ERROR);
+		return (free_printf_struct(pf, EXIT_ERROR));
 	va_start(ap, fmt);
 	if (read_fmt(pf, &ap) == EXIT_ERROR)
 		result = EXIT_ERROR;
 	else
 		result = pf->len;
 	va_end(ap);
-	free_printf_struct(pf);
-	return (result);
+	return (free_printf_struct(pf, result));
 }
 
 /*

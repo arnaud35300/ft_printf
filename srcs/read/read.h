@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dispatch_argument.c                                :+:      :+:    :+:   */
+/*   read.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/21 07:56:57 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/30 18:16:23 by arguilla         ###   ########.fr       */
+/*   Created: 2020/12/01 19:19:36 by arguilla          #+#    #+#             */
+/*   Updated: 2020/12/01 19:19:40 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef READ_H
+# define READ_H
 
-bool	dispatch_argument(t_printf *pf, va_list *ap, size_t *i)
-{
-	t_func *tab[9];
-	(void)i; // remove i parameter
+bool		read_argument(t_printf *pf, va_list *ap, size_t *i);
+bool		read_fmt(t_printf *pf, va_list *ap);
+void		read_and_clean_buffer(t_buffer *buffer);
+void		read_buffer(t_buffer *buffer);
 
-	assign_tab_converter(tab);
-	return ((*tab[pf->format.type])(pf, ap));
-}
+#endif
