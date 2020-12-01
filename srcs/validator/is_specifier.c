@@ -20,7 +20,7 @@
 ** @return	boolean value.
 */
 
-bool		is_specifier(char c)
+t_bool		is_specifier(char c)
 {
 	return (c == FMT_CHAR || c == FMT_STR || c == FMT_PTR || c == FMT_D_INT
 			|| c == FMT_I_INT || c == FMT_U_INT || c == FMT_HEX_L

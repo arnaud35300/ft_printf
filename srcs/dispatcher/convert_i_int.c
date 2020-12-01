@@ -21,7 +21,7 @@
  ** @return	boolean value, EXIT_ERROR if malloc fails.
 */
 
-bool		convert_i_int(t_printf *pf, va_list *ap)
+t_bool		convert_i_int(t_printf *pf, va_list *ap)
 {
 	return (convert_d_int(pf, ap));
 }

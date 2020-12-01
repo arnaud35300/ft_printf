@@ -21,7 +21,7 @@
 ** @return	boolean value.
 */
 
-bool	is_negative(int *nb)
+t_bool	is_negative(int *nb)
 {
 	if (*nb < 0)
 	{

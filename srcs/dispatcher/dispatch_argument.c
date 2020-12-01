@@ -22,7 +22,7 @@
  ** @return	boolean value, EXIT_ERROR if malloc fails.
 */
 
-bool	dispatch_argument(t_printf *pf, va_list *ap)
+t_bool	dispatch_argument(t_printf *pf, va_list *ap)
 {
 	t_func *tab[9];
 

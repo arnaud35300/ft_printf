@@ -21,7 +21,7 @@
 ** @return	r.
 */
 
-bool		free_printf_struct(t_printf *pf, bool response)
+t_bool		free_printf_struct(t_printf *pf, t_bool response)
 {
 	free(pf);
 	return (response);

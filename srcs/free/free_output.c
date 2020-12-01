@@ -21,7 +21,7 @@
 ** @return	r.
 */
 
-bool	free_output(char *output, bool response)
+t_bool	free_output(char *output, t_bool response)
 {
 	free(output);
 	return (response);

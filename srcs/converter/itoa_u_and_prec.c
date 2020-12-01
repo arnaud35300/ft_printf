@@ -21,9 +21,9 @@
 ** @return	the n length.
 */
 
-static int	get_len(uint n, uint base_len)
+static int	get_len(t_uint n, t_uint base_len)
 {
-	uint	len;
+	t_uint	len;
 
 	len = 0;
 	if (n <= 0)
@@ -51,11 +51,11 @@ static int	get_len(uint n, uint base_len)
 ** if malloc fails.
 */
 
-char		*itoa_u_and_prec(uint n, uint prec, uint base_len)
+char		*itoa_u_and_prec(t_uint n, t_uint prec, t_uint base_len)
 {
 	char	*r;
 	char	*base;
-	uint	len;
+	t_uint	len;
 
 	len = get_len(n, base_len);
 	if (prec > len)

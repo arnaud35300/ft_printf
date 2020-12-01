@@ -21,7 +21,7 @@
  ** @return	boolean value, EXIT_ERROR if malloc fails.
 */
 
-bool		convert_ptr(t_printf *pf, va_list *ap)
+t_bool		convert_ptr(t_printf *pf, va_list *ap)
 {
 	char	*output;
 	void	*arg;

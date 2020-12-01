@@ -13,9 +13,9 @@
 #ifndef VALIDATOR_H
 # define VALIDATOR_H
 
-bool		is_flag(char c);
-bool		is_specifier(char c);
-bool		is_negative(int *nb);
+t_bool		is_flag(char c);
+t_bool		is_specifier(char c);
+t_bool		is_negative(int *nb);
 void		check_number_or_asterisk(char *str, size_t *j);
 
 #endif

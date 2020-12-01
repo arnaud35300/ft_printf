@@ -13,8 +13,8 @@
 #ifndef READ_H
 # define READ_H
 
-bool		read_argument(t_printf *pf, va_list *ap, size_t *i);
-bool		read_fmt(t_printf *pf, va_list *ap);
+t_bool		read_argument(t_printf *pf, va_list *ap, size_t *i);
+t_bool		read_fmt(t_printf *pf, va_list *ap);
 void		read_and_clean_buffer(t_buffer *buffer);
 void		read_buffer(t_buffer *buffer);
 

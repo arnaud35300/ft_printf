@@ -13,8 +13,8 @@
 #ifndef FREE_H
 # define FREE_H
 
-bool		free_printf_struct(t_printf *pf, bool response);
-bool		free_output(char *output, bool response);
+t_bool		free_printf_struct(t_printf *pf, t_bool response);
+t_bool		free_output(char *output, t_bool response);
 char		*free_itoa(char *base, char *r);
 
 #endif

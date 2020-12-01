@@ -21,7 +21,7 @@
  ** @return	boolean value.
 */
 
-bool		convert_percent(t_printf *pf, va_list *ap)
+t_bool		convert_percent(t_printf *pf, va_list *ap)
 {
 	(void)ap;
 	if (pf->buffer.index >= BUFFER_SIZE)

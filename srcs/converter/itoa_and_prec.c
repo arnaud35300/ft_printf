@@ -36,9 +36,9 @@ static long		get_absolute(long n)
 ** @return	the n length.
 */
 
-static uint		get_len(long n, long base_len)
+static t_uint	get_len(long n, long base_len)
 {
-	uint	len;
+	t_uint	len;
 
 	len = 0;
 	if (n <= 0)
@@ -62,7 +62,7 @@ static uint		get_len(long n, long base_len)
 ** @return	the new width precision.
 */
 
-static uint		get_prec(long n, uint prec, bool is_prec)
+static t_uint	get_prec(long n, t_uint prec, t_bool is_prec)
 {
 	if (n < 0 && is_prec)
 		return (++prec);
@@ -84,11 +84,12 @@ static uint		get_prec(long n, uint prec, bool is_prec)
 ** if malloc fails.
 */
 
-char			*itoa_and_prec(long n, uint prec, long base_len, bool is_prec)
+char			*itoa_and_prec(long n, t_uint prec, long base_len,
+				t_bool is_prec)
 {
 	char	*r;
 	char	*base;
-	uint	len;
+	t_uint	len;
 
 	len = get_len(n, base_len);
 	if ((prec > len) || (n < 0 && prec >= len && is_prec))

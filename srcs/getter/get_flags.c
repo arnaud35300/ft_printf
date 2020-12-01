@@ -23,8 +23,8 @@
 
 char	get_flags(char *str, size_t *j)
 {
-	bool is_neg;
-	bool is_zero;
+	t_bool is_neg;
+	t_bool is_zero;
 
 	is_zero = FALSE;
 	is_neg = FALSE;

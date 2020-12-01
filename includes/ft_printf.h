@@ -13,8 +13,8 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-/* 
- ** Include dependencies and librairies
+/*
+** Include dependencies and librairies.
 */
 
 # include "libft.h"
@@ -25,7 +25,7 @@
 # include <stdint.h>
 
 /*
- ** Macros
+** Macros.
 */
 
 # define FMT_META_CHAR		'%'
@@ -37,11 +37,10 @@
 # define FMT_U_INT			'u'
 # define FMT_HEX_L			'x'
 # define FMT_HEX_U			'X'
-# define bool				int
 # define TRUE				1
 # define FALSE				0
-# define BUFFER_SIZE		40 
-# define NO_FLAG			'\0' 
+# define BUFFER_SIZE		40
+# define NO_FLAG			'\0'
 # define NO_WIDTH			0
 # define NO_PRECISION		'\0'
 # define NO_PREC_WIDTH		0
@@ -51,64 +50,10 @@
 # define SPACE_AFTER		2
 
 /*
- ** Macros types
+** Functions prototypes.
 */
 
-# define ulong				unsigned long int
-# define uint				unsigned int
-
-/*
- ** Enums
-*/
-
-enum e_type
-{
-	c,
-	s,
-	p,
-	d,
-	i,
-	u,
-	x,
-	X,
-	pc,
-};
-
-/*
- ** Printf structures
-*/
-
-typedef struct		s_buffer
-{
-	size_t	index;
-	int		fd;
-	char	buffer[BUFFER_SIZE];
-}					t_buffer;
-
-typedef struct		s_format
-{
-	unsigned int	flags;
-	unsigned int	width;
-	unsigned int	precision;
-	unsigned int	precision_width;
-	enum e_type		type;
-}					t_format;
-
-typedef struct		s_printf
-{
-	int			len;
-	char		*str;
-	t_buffer	buffer;
-	t_format	format;
-}					t_printf;
-
-typedef bool	t_func(t_printf *pf, va_list *ap);
-
-/*
-** Functions prototypes
-*/
-int			ft_printf(const char *fmt, ...);
-
+# include "data.h"
 # include "free.h"
 # include "store.h"
 # include "validator.h"
@@ -118,5 +63,7 @@ int			ft_printf(const char *fmt, ...);
 # include "clean.h"
 # include "utils.h"
 # include "converter.h"
+
+int			ft_printf(const char *fmt, ...);
 
 #endif

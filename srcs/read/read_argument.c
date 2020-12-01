@@ -23,7 +23,7 @@
 ** @return	boolean value, EXIT_ERROR if malloc fails.
 */
 
-bool		read_argument(t_printf *pf, va_list *ap, size_t *i)
+t_bool		read_argument(t_printf *pf, va_list *ap, size_t *i)
 {
 	size_t j;
 

@@ -20,7 +20,7 @@
 ** @return	boolean value.
 */
 
-bool	is_flag(char c)
+t_bool	is_flag(char c)
 {
 	return (c == '0' || c == '-');
 }

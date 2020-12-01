@@ -39,7 +39,7 @@ static void		store_char_arg(t_printf *pf, va_list *ap)
  ** @return	boolean value.
 */
 
-bool			convert_char(t_printf *pf, va_list *ap)
+t_bool			convert_char(t_printf *pf, va_list *ap)
 {
 	if (pf->format.flags == '-')
 	{

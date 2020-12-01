@@ -76,7 +76,7 @@ static void		store_arg(t_printf *pf, char *output)
 */
 
 void			store_output(t_printf *pf, char *output,
-				size_t output_len, bool order)
+				size_t output_len, t_bool order)
 {
 	if (order == SPACE_BEFORE)
 	{

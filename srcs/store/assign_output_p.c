@@ -24,7 +24,7 @@
 
 char	*assign_output_p(t_format *format, void *nb)
 {
-	uint	blen;
+	t_uint	blen;
 
 	blen = 16;
 	if (nb == NULL)

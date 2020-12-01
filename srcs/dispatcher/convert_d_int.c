@@ -18,10 +18,10 @@
 ** @param	pf	=> the printf structure.
 ** @param	ap	=> the ap structure which contains the list of arguments.
 **
- ** @return	boolean value, EXIT_ERROR if malloc fails.
+ ** @return	t_boolean value, EXIT_ERROR if malloc fails.
 */
 
-bool		convert_d_int(t_printf *pf, va_list *ap)
+t_bool		convert_d_int(t_printf *pf, va_list *ap)
 {
 	char	*output;
 	int		nb;

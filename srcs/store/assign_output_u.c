@@ -22,9 +22,9 @@
 ** @return	the nb converted to string, NULL if malloc fails.
 */
 
-char	*assign_output_u(t_format *format, uint nb)
+char	*assign_output_u(t_format *format, t_uint nb)
 {
-	uint base_len;
+	t_uint base_len;
 
 	base_len = 10;
 	if (format->type == x || format->type == X)
