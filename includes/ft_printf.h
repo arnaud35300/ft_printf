@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 09:11:53 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/30 20:14:11 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/12/01 19:36:11 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,13 @@
 # define EXIT_ERROR			-1
 # define SPACE_BEFORE		1
 # define SPACE_AFTER		2
+
+/*
+ ** Macros types
+*/
+
+# define ulong				unsigned long int
+# define uint				unsigned int
 
 /*
  ** Enums

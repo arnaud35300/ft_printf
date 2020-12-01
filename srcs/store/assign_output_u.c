@@ -6,15 +6,15 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 08:12:01 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/27 19:00:42 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/12/01 19:55:41 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *assign_output_u(t_format *format, unsigned int nb)
+char	*assign_output_u(t_format *format, uint nb)
 {
-	unsigned int base_len;
+	uint base_len;
 
 	base_len = 10;
 	if (format->type == x || format->type == X)

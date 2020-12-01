@@ -12,9 +12,9 @@
 
 #include "ft_printf.h"
 
-static int	get_len(long unsigned int n, long unsigned int base_len)
+static int	get_len(ulong n, ulong base_len)
 {
-	long unsigned int	len;
+	ulong	len;
 
 	len = 0;
 	if (n <= 0)
@@ -27,12 +27,12 @@ static int	get_len(long unsigned int n, long unsigned int base_len)
 	return (len);
 }
 
-char	*itoa_lu_and_prec(long unsigned int n, long unsigned int prec, long unsigned int base_len)
+char		*itoa_lu_and_prec(ulong n, ulong prec, ulong base_len)
 {
-	char			*r;
-	char			*base;
-	long unsigned int	len;
-	
+	char	*r;
+	char	*base;
+	ulong	len;
+
 	len = get_len(n, base_len) + 2;
 	if (prec > len)
 		len = prec + 2;

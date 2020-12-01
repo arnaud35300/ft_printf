@@ -6,16 +6,16 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 08:12:01 by arguilla          #+#    #+#             */
-/*   Updated: 2020/12/01 15:31:40 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/12/01 20:06:52 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *assign_output(t_format *format, int nb)
+char	*assign_output(t_format *format, int nb)
 {
-	int base_len;
-	
+	int	base_len;
+
 	base_len = 10;
 	if (nb == 0 && format->precision == '.' && format->precision_width == 0)
 		return (ft_strdup(""));

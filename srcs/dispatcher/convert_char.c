@@ -12,16 +12,16 @@
 
 #include "ft_printf.h"
 
-static void store_char_arg(t_printf *pf, va_list *ap)
+static void		store_char_arg(t_printf *pf, va_list *ap)
 {
-		if (!(pf->buffer.index < BUFFER_SIZE))
-			read_and_clean_buffer(&(pf->buffer));
-		pf->buffer.buffer[pf->buffer.index] = va_arg(*ap, int);
-		pf->buffer.index++;
-		pf->len++;
+	if (!(pf->buffer.index < BUFFER_SIZE))
+		read_and_clean_buffer(&(pf->buffer));
+	pf->buffer.buffer[pf->buffer.index] = va_arg(*ap, int);
+	pf->buffer.index++;
+	pf->len++;
 }
 
-bool		convert_char(t_printf *pf, va_list *ap)
+bool			convert_char(t_printf *pf, va_list *ap)
 {
 	if (pf->format.flags == '-')
 	{

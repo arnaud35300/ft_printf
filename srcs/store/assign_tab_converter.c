@@ -6,14 +6,14 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 09:09:45 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/30 18:15:57 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/12/01 20:04:16 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 void	assign_tab_converter(t_func **tab)
-{	
+{
 	tab[0] = &convert_char;
 	tab[1] = &convert_str;
 	tab[2] = &convert_ptr;

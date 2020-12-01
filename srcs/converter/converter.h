@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #ifndef CONVERTER_H
-# define CONVERTER
+# define CONVERTER_H
 
-char		*itoa_and_prec(long int n, unsigned int prec, long int base_len, bool is_prec);
-char		*itoa_u_and_prec(unsigned int n, unsigned int prec, unsigned int base_len);
-char		*itoa_lu_and_prec(long unsigned int n, long unsigned int prec, long unsigned int base_len);
+char		*itoa_and_prec(long n, uint prec, long base_len, bool is_prec);
+char		*itoa_u_and_prec(uint n, uint prec, uint base_len);
+char		*itoa_lu_and_prec(ulong n, ulong prec, ulong base_len);
 
 #endif

@@ -35,12 +35,12 @@ static char		*store_valid_str(t_printf *pf, char *arg)
 	return (output);
 }
 
-bool		convert_str(t_printf *pf, va_list *ap)
+bool			convert_str(t_printf *pf, va_list *ap)
 {
 	char	*arg;
 	char	*output;
 
-	arg  = va_arg(*ap, char *);
+	arg = va_arg(*ap, char *);
 	if (arg == NULL)
 		output = store_unvalid_str(pf);
 	else

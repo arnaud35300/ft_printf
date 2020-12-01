@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h" 
+#include "ft_printf.h"
 
-static int	get_len(unsigned int n, unsigned int base_len)
+static int	get_len(uint n, uint base_len)
 {
-	unsigned int	len;
+	uint	len;
 
 	len = 0;
 	if (n <= 0)
@@ -27,11 +27,11 @@ static int	get_len(unsigned int n, unsigned int base_len)
 	return (len);
 }
 
-char	*itoa_u_and_prec(unsigned int n, unsigned int prec, unsigned int base_len)
+char		*itoa_u_and_prec(uint n, uint prec, uint base_len)
 {
-	char			*r;
-	char			*base;
-	unsigned int	len;
+	char	*r;
+	char	*base;
+	uint	len;
 
 	len = get_len(n, base_len);
 	if (prec > len)
@@ -48,6 +48,6 @@ char	*itoa_u_and_prec(unsigned int n, unsigned int prec, unsigned int base_len)
 		--len;
 		r[len] = base[n % base_len];
 		n = n / base_len;
-	}	
+	}
 	return (free_itoa(base, r));
 }

@@ -6,15 +6,17 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 16:50:26 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/18 16:59:19 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/12/01 20:07:33 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-** Functions who check if a character is in string and increments the second argument
+** Functions who check if a character is into a string
+** and increments the second argument
 */
+
 char	move_str_index(char c, char *compare, size_t *j)
 {
 	while (*compare)

@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/21 08:20:38 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/30 18:19:35 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/12/01 19:54:44 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 /*
 ** Functions who take a char and compare with all types notations.
 */
-int	get_type(char c)
+
+int		get_type(char c)
 {
 	int	i;
 

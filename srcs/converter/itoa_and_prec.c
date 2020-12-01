@@ -10,18 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h" 
+#include "ft_printf.h"
 
-static long int		get_absolute(long int n)
+static long		get_absolute(long n)
 {
 	if (n > 0)
 		return (n);
 	return (-n);
 }
 
-static unsigned int			get_len(long int n, long int base_len)
+static uint		get_len(long n, long base_len)
 {
-	unsigned int	len;
+	uint	len;
 
 	len = 0;
 	if (n <= 0)
@@ -34,18 +34,18 @@ static unsigned int			get_len(long int n, long int base_len)
 	return (len);
 }
 
-static unsigned int	get_prec(long int n, unsigned int prec, bool is_prec)
+static uint		get_prec(long n, uint prec, bool is_prec)
 {
 	if (n < 0 && is_prec)
 		return (++prec);
 	return (prec);
 }
 
-char				*itoa_and_prec(long int n, unsigned int prec, long int base_len, bool is_prec)
+char			*itoa_and_prec(long n, uint prec, long base_len, bool is_prec)
 {
-	char			*r;
-	char			*base;
-	unsigned int	len;
+	char	*r;
+	char	*base;
+	uint	len;
 
 	len = get_len(n, base_len);
 	if ((prec > len) || (n < 0 && prec >= len && is_prec))

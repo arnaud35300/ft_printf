@@ -6,7 +6,7 @@
 /*   By: arguilla <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 08:17:25 by arguilla          #+#    #+#             */
-/*   Updated: 2020/11/30 20:59:29 by arguilla         ###   ########.fr       */
+/*   Updated: 2020/12/01 19:55:07 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 ** Functions who take the current position to argument in fmt, and check if
 ** this argument is valid and return a boolean.
 */
+
 bool		read_argument(t_printf *pf, va_list *ap, size_t *i)
 {
 	size_t j;
