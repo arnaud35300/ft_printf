@@ -13,7 +13,7 @@
 #include "ft_printf.h"
 
 /*
-** Give the absolute vaule of a number
+** Give the absolute value of a number
 **
 ** @param	n	=> the number where we want to know its absolute value.
 **
