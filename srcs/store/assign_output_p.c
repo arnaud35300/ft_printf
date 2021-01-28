@@ -28,7 +28,12 @@ char	*assign_output_p(t_format *format, void *nb)
 
 	blen = 16;
 	if (nb == NULL)
-		return (ft_strdup("(nil)"));
+	{
+		if (format->precision == '.')
+			return (itoa_lu_and_prec(0, format->precision_width, blen));
+		else
+			return (ft_strdup("0x0"));
+	}
 	if (format->precision == '.')
 		return (itoa_lu_and_prec((uintptr_t)nb, format->precision_width, blen));
 	if (format->flags == '0')

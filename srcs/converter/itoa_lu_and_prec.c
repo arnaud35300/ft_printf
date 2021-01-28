@@ -26,8 +26,8 @@ static int	get_len(t_ulong n, t_ulong base_len)
 	t_ulong	len;
 
 	len = 0;
-	if (n <= 0)
-		++len;
+//	if (n <= 0)
+//		++len;
 	while (n != 0)
 	{
 		n = n / base_len;
@@ -50,6 +50,7 @@ static int	get_len(t_ulong n, t_ulong base_len)
 ** @return	a string representing the conversion of the number, NULL
 ** if malloc fails.
 */
+#include <stdio.h>
 
 char		*itoa_lu_and_prec(t_ulong n, t_ulong prec, t_ulong base_len)
 {

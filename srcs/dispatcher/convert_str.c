@@ -26,9 +26,8 @@
 static char		*store_unvalid_str(t_printf *pf)
 {
 	if (pf->format.precision == '.' && pf->format.precision_width < 6)
-		return (ft_strdup(""));
-	else
-		return (ft_strdup("(null)"));
+		return (ft_substr("(null)", 0, pf->format.precision_width));
+	return (ft_strdup("(null)"));
 }
 
 /*
